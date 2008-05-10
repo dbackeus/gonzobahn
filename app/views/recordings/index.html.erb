@@ -1,14 +1,9 @@
-<h1>Listing recordings</h1>
+<h1>My Recordings</h1>
 
 <table>
-  <tr>
-    <th>Title</th>
-  </tr>
-
 <% for recording in @recordings %>
   <tr>
-    <td><%=h recording.title %></td>
-    <td><%= link_to 'Show', recording %></td>
+    <td width="200"><%= link_to recording.title, recording %></td>
     <td><%= link_to 'Edit', edit_recording_path(recording) %></td>
     <td><%= link_to 'Destroy', recording, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

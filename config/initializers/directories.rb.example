@@ -1,0 +1,2 @@
+STREAMS_DIR = '/Applications/Red5/webapps/oflaDemo/streams'
+SITE_HOST = 'skistar.eframe.se:3100'

@@ -1,8 +1,10 @@
 class RecordingsController < ApplicationController
+  before_filter :login_required, :except => :show
+  
   # GET /recordings
   # GET /recordings.xml
   def index
-    @recordings = Recording.find(:all)
+    @recordings = current_user.recordings.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +26,7 @@ class RecordingsController < ApplicationController
   # GET /recordings/new
   # GET /recordings/new.xml
   def new
-    @recording = Recording.new
+    @recording = current_user.recordings.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class RecordingsController < ApplicationController
 
   # GET /recordings/1/edit
   def edit
-    @recording = Recording.find(params[:id])
+    @recording = current_user.recordings.find(params[:id])
   end
 
   # POST /recordings
   # POST /recordings.xml
   def create
-    @recording = Recording.new(params[:recording])
+    @recording = current_user.recordings.build(params[:recording])
 
     respond_to do |format|
       if @recording.save
@@ -57,7 +59,7 @@ class RecordingsController < ApplicationController
   # PUT /recordings/1
   # PUT /recordings/1.xml
   def update
-    @recording = Recording.find(params[:id])
+    @recording = current_user.recordings.find(params[:id])
 
     respond_to do |format|
       if @recording.update_attributes(params[:recording])
@@ -74,7 +76,7 @@ class RecordingsController < ApplicationController
   # DELETE /recordings/1
   # DELETE /recordings/1.xml
   def destroy
-    @recording = Recording.find(params[:id])
+    @recording = current_user.recordings.find(params[:id])
     @recording.destroy
 
     respond_to do |format|

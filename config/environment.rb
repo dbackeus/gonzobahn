@@ -32,27 +32,25 @@ Rails::Initializer.run do |config|
   # (by default production uses :info, the others :debug)
   # config.log_level = :debug
 
-  # Your secret key for verifying cookie session data integrity.
-  # If you change this key, all old sessions will become invalid!
-  # Make sure the secret is at least 30 characters and all random, 
-  # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
     :session_key => '_gonzoban_session',
     :secret      => '24b8cb807eb5b10f894eedd5496a4281d5f02a3c67278a4005e2ade1fa9a10756ba86aa5f3f87f5fa5e8a49ad9e420d71119dd47c3530b9daee6f984d09ea0b4'
   }
 
-  # Use the database for sessions instead of the cookie-based default,
-  # which shouldn't be used to store highly confidential information
-  # (create the session table with 'rake db:sessions:create')
-  # config.action_controller.session_store = :active_record_store
-
-  # Use SQL instead of Active Record's schema dumper when creating the test database.
-  # This is necessary if your schema can't be completely dumped by the schema dumper,
-  # like if you have constraints or database-specific column types
-  # config.active_record.schema_format = :sql
-
-  # Activate observers that should always be running
-  # config.active_record.observers = :cacher, :garbage_collector
+  config.action_mailer.delivery_method = :smtp
+	config.action_mailer.smtp_settings = {
+	  :address => "mail.streamio.se" ,
+	  :user_name => "david.backeus@streamio.se",
+	  :password => "supermongo",
+	  :authentication => :login,
+	  :port => 587
+	}
+	config.action_mailer.perform_deliveries = true
+	config.action_mailer.raise_delivery_errors = true
+	config.action_mailer.default_charset = "utf-8"
+  
+  # Obervers
+  config.active_record.observers = :user_observer
 
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
