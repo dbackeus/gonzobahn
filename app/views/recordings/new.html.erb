@@ -1,0 +1,27 @@
+<h1>New recording</h1>
+
+<script type="text/javascript" charset="utf-8">
+  function onStreamRecorded( fileName )
+  {
+    $('recording_filename').value = fileName
+  }
+</script>
+
+<div id="flash">
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="320" height="274">
+    <param name="movie" value="/flash/dictaphone_recorder.swf" />
+    <!--[if !IE]>-->
+    <object type="application/x-shockwave-flash" data="/flash/dictaphone_recorder.swf" width="320" height="274">
+    <!--<![endif]-->
+      <p>Alternative content</p>
+    <!--[if !IE]>-->
+    </object>
+    <!--<![endif]-->
+  </object>
+</div>
+
+<%= error_messages_for :recording %>
+
+<%= render :partial => 'form' %>
+
+<%= link_to 'Back', recordings_path %>

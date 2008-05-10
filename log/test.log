@@ -1,0 +1,257 @@
+Rendering /recordings/show.html.erb
+Rendering /recordings/new.html.erb
+Rendered /recordings/_form (0.00215)
+Rendering /recordings/index.html.erb
+Rendering /recordings/edit.html.erb
+Rendered /recordings/_form (0.00102)
+
+
+Processing RecordingsController#destroy (for 0.0.0.0 at 2008-05-10 12:13:28) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"recordings"}
+Redirected to http://test.host/recordings
+Completed in 0.00214 (466 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://test.host/recordings/1]
+
+
+Processing RecordingsController#destroy (for 0.0.0.0 at 2008-05-10 12:13:28) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"recordings"}
+Redirected to http://test.host/recordings
+Completed in 0.00029 (3435 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://test.host/recordings/1]
+
+
+Processing RecordingsController#destroy (for 0.0.0.0 at 2008-05-10 12:13:28) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"recordings"}
+Redirected to http://test.host/recordings
+Completed in 0.00029 (3506 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://test.host/recordings/1]
+
+
+Processing RecordingsController#update (for 0.0.0.0 at 2008-05-10 12:13:28) [PUT]
+  Session ID: 
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/edit
+Completed in 0.00094 (1064 reqs/sec) | Rendering: 0.00052 (55%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1]
+
+
+Processing RecordingsController#update (for 0.0.0.0 at 2008-05-10 12:13:28) [PUT]
+  Session ID: 
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"recordings"}
+Redirected to http://test.host/recordings/1
+Completed in 0.05227 (19 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://test.host/recordings/1]
+
+
+Processing RecordingsController#update (for 0.0.0.0 at 2008-05-10 12:13:28) [PUT]
+  Session ID: 
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"recordings"}
+Redirected to http://test.host/recordings/1
+Completed in 0.00043 (2316 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://test.host/recordings/1]
+
+
+Processing RecordingsController#update (for 0.0.0.0 at 2008-05-10 12:13:28) [PUT]
+  Session ID: 
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"recordings"}
+Redirected to http://test.host/recordings/1
+Completed in 0.00043 (2319 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://test.host/recordings/1]
+
+
+Processing RecordingsController#update (for 0.0.0.0 at 2008-05-10 12:13:28) [PUT]
+  Session ID: 
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"recordings"}
+Redirected to http://test.host/recordings/1
+Completed in 0.00041 (2420 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://test.host/recordings/1]
+
+
+Processing RecordingsController#create (for 0.0.0.0 at 2008-05-10 12:13:28) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "controller"=>"recordings", "recording"=>{}}
+Rendering template within layouts/application
+Rendering recordings/new
+Completed in 0.00072 (1396 reqs/sec) | Rendering: 0.00035 (48%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings?]
+
+
+Processing RecordingsController#create (for 0.0.0.0 at 2008-05-10 12:13:28) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "controller"=>"recordings", "recording"=>{}}
+Redirected to http://test.host/recordings/1
+Completed in 0.00043 (2347 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://test.host/recordings?]
+
+
+Processing RecordingsController#create (for 0.0.0.0 at 2008-05-10 12:13:28) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "controller"=>"recordings", "recording"=>{}}
+Redirected to http://test.host/recordings/1
+Completed in 0.00042 (2364 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://test.host/recordings?]
+
+
+Processing RecordingsController#edit (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/edit
+Completed in 0.00048 (2079 reqs/sec) | Rendering: 0.00029 (60%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1/edit]
+
+
+Processing RecordingsController#edit (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/edit
+Completed in 0.00044 (2273 reqs/sec) | Rendering: 0.00026 (59%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1/edit]
+
+
+Processing RecordingsController#edit (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/edit
+Completed in 0.00043 (2341 reqs/sec) | Rendering: 0.00026 (59%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1/edit]
+
+
+Processing RecordingsController#edit (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/edit
+Completed in 0.00043 (2319 reqs/sec) | Rendering: 0.00026 (60%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1/edit]
+
+
+Processing RecordingsController#new (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/new
+Completed in 0.00071 (1408 reqs/sec) | Rendering: 0.00034 (48%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/new]
+
+
+Processing RecordingsController#new (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/new
+Completed in 0.00061 (1637 reqs/sec) | Rendering: 0.00029 (48%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/new]
+
+
+Processing RecordingsController#new (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/new
+Completed in 0.00057 (1754 reqs/sec) | Rendering: 0.00027 (47%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/new]
+
+
+Processing RecordingsController#new (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/new
+Completed in 0.00061 (1633 reqs/sec) | Rendering: 0.00032 (52%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/new]
+
+
+Processing RecordingsController#new (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/new
+Completed in 0.00062 (1610 reqs/sec) | Rendering: 0.00030 (47%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/new]
+
+
+Processing RecordingsController#show (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"recordings"}
+Completed in 0.00041 (2438 reqs/sec) | Rendering: 0.00006 (15%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1]
+
+
+Processing RecordingsController#show (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"recordings"}
+Completed in 0.00040 (2525 reqs/sec) | Rendering: 0.00007 (17%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1]
+
+
+Processing RecordingsController#show (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"recordings"}
+Completed in 0.00041 (2432 reqs/sec) | Rendering: 0.00007 (16%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1]
+
+
+Processing RecordingsController#show (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/show
+Completed in 0.00071 (1402 reqs/sec) | Rendering: 0.00037 (51%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1]
+
+
+Processing RecordingsController#show (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/show
+Completed in 0.00058 (1733 reqs/sec) | Rendering: 0.00028 (47%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1]
+
+
+Processing RecordingsController#show (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/show
+Completed in 0.00056 (1785 reqs/sec) | Rendering: 0.00027 (48%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1]
+
+
+Processing RecordingsController#show (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/show
+Completed in 0.00055 (1814 reqs/sec) | Rendering: 0.00026 (48%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings/1]
+
+
+Processing RecordingsController#index (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"recordings"}
+Completed in 0.00043 (2314 reqs/sec) | Rendering: 0.00007 (16%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings]
+
+
+Processing RecordingsController#index (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"recordings"}
+Completed in 0.00072 (1394 reqs/sec) | Rendering: 0.00038 (52%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings]
+
+
+Processing RecordingsController#index (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"recordings"}
+Completed in 0.00036 (2761 reqs/sec) | Rendering: 0.00006 (17%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings]
+
+
+Processing RecordingsController#index (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/index
+Completed in 0.00064 (1569 reqs/sec) | Rendering: 0.00033 (51%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings]
+
+
+Processing RecordingsController#index (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/index
+Completed in 0.00056 (1776 reqs/sec) | Rendering: 0.00027 (48%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings]
+
+
+Processing RecordingsController#index (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/index
+Completed in 0.00056 (1786 reqs/sec) | Rendering: 0.00027 (48%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings]
+
+
+Processing RecordingsController#index (for 0.0.0.0 at 2008-05-10 12:13:28) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"recordings"}
+Rendering template within layouts/application
+Rendering recordings/index
+Completed in 0.00054 (1837 reqs/sec) | Rendering: 0.00027 (48%) | DB: 0.00000 (0%) | 200 OK [http://test.host/recordings]

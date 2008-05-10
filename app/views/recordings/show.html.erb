@@ -1,0 +1,22 @@
+<h1><%=h @recording.title %></h1>
+
+<div id="flash">
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="320" height="274">
+    <param name="movie" value="/flash/recording_player.swf?filename=<%= @recording.filename %>".flv />
+    <!--[if !IE]>-->
+    <object type="application/x-shockwave-flash" data="/flash/recording_player.swf?filename=<%= @recording.filename %>.flv" width="320" height="274">
+    <!--<![endif]-->
+      <p>Alternative content</p>
+    <!--[if !IE]>-->
+    </object>
+    <!--<![endif]-->
+  </object>
+</div>
+
+<p>
+  <b>Description:</b>
+  <%=h @recording.description %>
+</p>
+
+<%= link_to 'Edit', edit_recording_path(@recording) %> |
+<%= link_to 'Back', recordings_path %>
