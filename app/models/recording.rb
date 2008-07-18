@@ -1,7 +1,7 @@
 class Recording < ActiveRecord::Base
   acts_as_taggable
   
-  validates_presence_of :title
+  validates_presence_of :title  
   validates_presence_of :filename
   validates_presence_of :user
   

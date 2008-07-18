@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
-  map.resources :recordings
+  map.resources :recordings, :collection => { :auto_complete_for_recording_tag_list => :post }
 
   # The priority is based upon order of creation: first created -> highest priority.
 

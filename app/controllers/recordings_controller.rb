@@ -1,6 +1,22 @@
 class RecordingsController < ApplicationController
   before_filter :login_required, :except => :show
   
+  protect_from_forgery :except => :auto_complete_for_recording_tag_list
+  
+  auto_complete_for :recording, :tag_list
+
+  def auto_complete_for_recording_tag_list
+    @words = params[:recording][:tag_list].split(',')
+    
+    all_tags = Tag.find(:all, :order => 'name ASC')
+    last_word = @words.pop.strip
+    pattern = Regexp.new("^#{last_word}", "i")
+    
+    @tags = all_tags.select { |t| t.name.match pattern }
+
+    render :layout => false
+  end
+  
   # GET /recordings
   # GET /recordings.xml
   def index
@@ -11,7 +27,7 @@ class RecordingsController < ApplicationController
       format.xml  { render :xml => @recordings }
     end
   end
-
+  
   # GET /recordings/1
   # GET /recordings/1.xml
   def show

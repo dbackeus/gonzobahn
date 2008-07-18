@@ -5,12 +5,17 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.0.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+  
+  # Override this in production.rb
+  SITE_HOST = "localhost:3000"
+  FMS_HOST = "localhost"
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
@@ -36,18 +41,6 @@ Rails::Initializer.run do |config|
     :session_key => '_gonzoban_session',
     :secret      => '24b8cb807eb5b10f894eedd5496a4281d5f02a3c67278a4005e2ade1fa9a10756ba86aa5f3f87f5fa5e8a49ad9e420d71119dd47c3530b9daee6f984d09ea0b4'
   }
-
-  config.action_mailer.delivery_method = :smtp
-	config.action_mailer.smtp_settings = {
-	  :address => "mail.streamio.se" ,
-	  :user_name => "david.backeus@streamio.se",
-	  :password => "supermongo",
-	  :authentication => :login,
-	  :port => 587
-	}
-	config.action_mailer.perform_deliveries = true
-	config.action_mailer.raise_delivery_errors = true
-	config.action_mailer.default_charset = "utf-8"
   
   # Obervers
   config.active_record.observers = :user_observer

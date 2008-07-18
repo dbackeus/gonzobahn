@@ -4,6 +4,9 @@
 # Code is not reloaded between requests
 config.cache_classes = true
 
+SITE_HOST = "sf.eframe.se"
+FMS_HOST = "sf.eframe.se"
+
 # Use a different logger for distributed setups
 # config.logger = SyslogLogger.new
 
@@ -11,6 +14,15 @@ config.cache_classes = true
 config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
 config.action_view.cache_template_loading            = true
+
+config.action_mailer.raise_delivery_errors = true
+
+ActionMailer::Base.delivery_method = :sendmail
+
+ActionMailer::Base.sendmail_settings = {
+  :location       => '/usr/sbin/sendmail',
+  :arguments      => '-i -t'
+}
 
 # Enable serving of images, stylesheets, and javascripts from an asset server
 # config.action_controller.asset_host                  = "http://assets.example.com"

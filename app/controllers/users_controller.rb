@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+    @user = current_user
+  end
+
   def create
     cookies.delete :auth_token
     # protects against session fixation attacks, wreaks havoc with 
@@ -26,6 +30,17 @@ class UsersController < ApplicationController
       flash[:notice] = "Thanks for signing up!"
     else
       render :action => 'new'
+    end
+  end
+  
+  def update
+    @user = current_user
+    
+    if @user.update_attributes(params[:user])
+      flash[:notice] = 'The user was updated successfully.'
+      redirect_to edit_user_path(@user)
+    else
+      render :action => "edit"
     end
   end
 

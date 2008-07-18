@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  
   helper :all
 
   protect_from_forgery
@@ -15,4 +16,5 @@ class ApplicationController < ActionController::Base
     flash.now[:notice] = "Testmeddelande"
     flash.now[:error] = "Testmeddelande"
   end
+  
 end
