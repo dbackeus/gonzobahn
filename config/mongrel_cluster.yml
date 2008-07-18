@@ -1,0 +1,9 @@
+--- 
+cwd: /home/deploy/apps/gonzobahn/current
+log_file: log/mongrel.log
+port: 7000
+pid_file: tmp/pids/mongrel.pid
+servers: 1
+user: deploy
+group: deploy
+environment: production
