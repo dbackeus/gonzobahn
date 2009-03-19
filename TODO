@@ -10,3 +10,7 @@
 .nice
 - Kommentarer
 - Kudossystem
+
+.refactor
+- Fixa .all
+- Använd bara ""

@@ -1,15 +1,10 @@
 <h1><%=h @recording.title %></h1>
 
 <div id="flash">
-  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="320" height="274">
-    <param name="movie" value="/flash/recording_player.swf?filename=<%= @recording.filename %>.flv&host=<%= FMS_HOST %>" />
-    <!--[if !IE]>-->
-    <object type="application/x-shockwave-flash" data="/flash/recording_player.swf?filename=<%= @recording.filename %>.flv&host=<%= FMS_HOST %>" width="320" height="274">
-    <!--<![endif]-->
-      <p>Alternative content</p>
-    <!--[if !IE]>-->
-    </object>
-    <!--<![endif]-->
+  <object width="320" height="274">
+    <param name="movie" value="/flash/recording_player.swf?recordingId=<%= @recording.id %>&host=<%= SITE_HOST %>"></param>
+    <param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
+    <embed src="/flash/recording_player.swf?recordingId=<%= @recording.id %>&host=<%= SITE_HOST %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="320" height="274"></embed>
   </object>
 </div>
 

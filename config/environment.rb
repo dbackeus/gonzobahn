@@ -12,6 +12,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   
+  require 'ftools'
+  
   # Override this in production.rb
   SITE_HOST = "localhost:3000"
   FMS_HOST = "localhost"
