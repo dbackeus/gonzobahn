@@ -7,15 +7,15 @@ class Recording < ActiveRecord::Base
   
   belongs_to :user
   
-  after_save :move_file_to_public_dir
+  after_create :move_file_to_public_dir
   after_destroy :delete_file
   
   def file_path
-    "#{PUBLIC_RECORDINGS_DIR}/#{id}/#{filename}.flv"
+    "#{PUBLIC_RECORDINGS_DIR}/#{id}/#{filename}"
   end
   
   def recorded_file_path
-    "#{RED5_RECORDINGS_DIR}/#{filename}.flv"
+    "#{RED5_RECORDINGS_DIR}/#{filename}"
   end
   
   private
