@@ -4,8 +4,8 @@
 # Code is not reloaded between requests
 config.cache_classes = true
 
-SITE_HOST = "sf.eframe.se"
-FMS_HOST = "sf.eframe.se"
+# Enable threaded mode
+# config.threadsafe!
 
 # Use a different logger for distributed setups
 # config.logger = SyslogLogger.new
@@ -13,7 +13,6 @@ FMS_HOST = "sf.eframe.se"
 # Full error reports are disabled and caching is turned on
 config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
-config.action_view.cache_template_loading            = true
 
 config.action_mailer.raise_delivery_errors = true
 
@@ -29,3 +28,6 @@ ActionMailer::Base.sendmail_settings = {
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
+
+SITE_HOST = "sf.eframe.se"
+FMS_HOST = "sf.eframe.se"
