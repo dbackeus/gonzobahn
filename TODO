@@ -2,15 +2,14 @@
 
 .todo
 - Framsida
-- Snygga till css
-- Generera tumnaglar http://www.flashcomguru.com/index.cfm/2006/4/25/ffmpegthumbs
 - Cronjob för att rensa osparade strömmar
 - Taggning
 
 .nice
 - Kommentarer
 - Kudossystem
+- Feeds
+- Flash Embed
 
 .refactor
-- Fixa .all
 - Använd bara ""
