@@ -193,6 +193,11 @@ describe RecordingsController do
       lambda { do_delete }.should change(Recording, :count).by(-1)
       Recording.find_by_id(@recording.id).should be_nil
     end
+    
+    it "should set the flash" do
+      do_delete
+      flash[:notice].should_not be_nil
+    end
   
     it "should redirect to the user recordings list" do
       do_delete

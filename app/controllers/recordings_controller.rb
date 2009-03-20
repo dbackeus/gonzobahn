@@ -65,6 +65,7 @@ class RecordingsController < ApplicationController
   def destroy
     @recording = current_user.recordings.find(params[:id])
     @recording.destroy
+    flash[:notice] = "Recording was succefully deleted"
     
     redirect_to user_recordings_path(@recording.user)
   end

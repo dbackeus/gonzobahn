@@ -4,6 +4,7 @@ class Recording < ActiveRecord::Base
   validates_presence_of :title  
   validates_presence_of :filename
   validates_presence_of :user
+  validates_presence_of :length
   
   belongs_to :user
   
@@ -22,6 +23,11 @@ class Recording < ActiveRecord::Base
   
   def thumbnail_path
     "/system/recordings/#{id}/image_original.jpg"
+  end
+  
+  def length_pretty
+    time = Time.at(length.round)
+    sprintf("%02d:%02d", time.min, time.sec)
   end
   
   private

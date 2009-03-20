@@ -50,7 +50,6 @@ class UsersController < ApplicationController
   # GET /activate/ef97b7453727318bc3bfeeca1252471e48f98fd2
   def activate
     self.current_user = params[:activation_code].blank? ? false : User.find_by_activation_code(params[:activation_code])
-    p "Controller: #{params[:activation_code]}"
     if logged_in? && !current_user.active?
       current_user.activate!
       flash[:notice] = "Signup complete!"

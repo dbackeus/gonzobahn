@@ -10,16 +10,14 @@
   
   <div id="site">
       <div id="header">
-        <% if logged_in? %>
-          You are logged in as: <%= current_user.login %> |
-          <%= link_to 'Edit profile', edit_user_path(current_user) %> |
-          <%= link_to 'Log out', session_path, :method => :delete %>
-        <% else %>
-          You are not logged in.
-          <%= link_to 'Log in', login_path %> or <%= link_to 'Register', new_user_path %>
-        <% end %>
+        <h1>Loud Thinking</h1>
+        <%= render :partial => "layouts/user_info" %>
+        <div class="clear"></div>
       </div>
-    
+      <div id="menu">
+        <%= render :partial => "layouts/menu" %>
+        <div class="clear"></div>
+      </div>
       <div id="content">
         <% [:notice, :error].each do |message| %>
           <div id="<%= message %>" class="flash_message" style="display: <%= flash[message] ? 'block' : 'none' %>">
@@ -27,7 +25,8 @@
           </div>
         <% end %>
         
-        <%= yield %>      
+        <%= yield %>
+        <div class="clear"></div>  
       </div>
   </div>
   

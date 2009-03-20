@@ -1,0 +1,14 @@
+<div id="user_info">
+  <% if logged_in? %>
+  <p>
+    You are logged in as: <%= link_to current_user, user_recordings_path(current_user) %> |
+    <%= link_to 'Edit profile', edit_user_path(current_user) %> |
+    <%= link_to 'Log out', session_path, :method => :delete %>
+  </p>
+  <% else %>
+  <p>
+    You are not logged in.
+    <%= link_to 'Log in', login_path %> or <%= link_to 'Register', new_user_path %>
+  </p>
+  <% end %>
+</div>

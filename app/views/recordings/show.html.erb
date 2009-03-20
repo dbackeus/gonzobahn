@@ -10,13 +10,13 @@
 
 <p>
   <b>Length:</b>
-  <%=h @recording.length %>
+  <%=h @recording.length_pretty %>
 </p>
 
 <p>
-  <b>Description:</b>
   <%=h @recording.description %>
 </p>
 
-<%= link_to 'Edit', edit_recording_path(@recording) %> |
-<%= link_to 'Back', recordings_path %>
+<% if @recording.user == current_user %>
+<%= link_to 'Edit', edit_recording_path(@recording) %>
+<% end %>

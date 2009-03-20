@@ -21,5 +21,6 @@ Factory.define :recording do |r|
   r.title "test"
   r.description "Omg..."
   r.filename "test.flv"
+  r.length 45.345
   r.association :user
 end
