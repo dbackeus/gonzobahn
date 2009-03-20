@@ -18,20 +18,11 @@ Rails::Initializer.run do |config|
   SITE_HOST = "localhost:3000"
   FMS_HOST = "localhost"
   
-  # Settings in config/environments/* take precedence over those specified here.
-  # Application configuration should go into files in config/initializers
-  # -- all .rb files in that directory are automatically loaded.
-  # See Rails::Configuration for more options.
-
-  # Skip frameworks you're not going to use (only works if using vendor/rails).
-  # To use Rails without a database, you must remove the Active Record framework
-  # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
-
-  # Only load the plugins named here, in the order given. By default, all plugins 
-  # in vendor/plugins are loaded in alphabetical order.
-  # :all can be used as a placeholder for all plugins not explicitly named
-  # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-
+  unless RAILS_ENV == "production"
+    config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
+    config.gem "mocha"
+  end
+  
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 

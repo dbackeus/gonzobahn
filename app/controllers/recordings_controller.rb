@@ -65,6 +65,8 @@ class RecordingsController < ApplicationController
   def destroy
     @recording = current_user.recordings.find(params[:id])
     @recording.destroy
+    
+    redirect_to user_recordings_path(@recording.user)
   end
   
   private

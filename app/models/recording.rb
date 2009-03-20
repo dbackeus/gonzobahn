@@ -10,7 +10,7 @@ class Recording < ActiveRecord::Base
   after_create :move_file_to_public_dir
   after_create :generate_thumbnail
   
-  after_destroy :delete_file
+  after_destroy :delete_files
   
   def directory
     "#{PUBLIC_RECORDINGS_DIR}/#{id}"
@@ -36,7 +36,7 @@ class Recording < ActiveRecord::Base
     File.rename "#{directory}/1.jpg", "#{directory}/image_original.jpg"
   end
   
-  def delete_file
+  def delete_files
     FileUtils.remove_dir directory
   end
 end
