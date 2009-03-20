@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
   end
 
   event :unsuspend do
-    transitions :from => :suspended, :to => :active,  :guard => Proc.new {|u| !u.activated_at.blank? }
-    transitions :from => :suspended, :to => :pending, :guard => Proc.new {|u| !u.activation_code.blank? }
+    transitions :from => :suspended, :to => :active,  :guard => Proc.new {|u| u.activated_at.present? }
+    transitions :from => :suspended, :to => :pending, :guard => Proc.new {|u| u.activation_code.present? }
     transitions :from => :suspended, :to => :passive
   end
 
