@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
     else
-      render :action => 'new'
+      render "new"
     end
   end
   
@@ -40,10 +40,10 @@ class UsersController < ApplicationController
     @user = current_user
     
     if @user.update_attributes(params[:user])
-      flash[:notice] = 'The user was updated successfully.'
+      flash[:notice] = "The user was updated successfully."
       redirect_to edit_user_path(@user)
     else
-      render :action => "edit"
+      render "edit"
     end
   end
 

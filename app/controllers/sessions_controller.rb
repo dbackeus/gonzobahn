@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Logged in successfully"
       redirect_to user_recordings_path(current_user)
     else
-      render :action => 'new'
+      render "new"
     end
   end
 

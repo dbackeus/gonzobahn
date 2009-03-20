@@ -8,7 +8,7 @@ class RecordingsController < ApplicationController
   def auto_complete_for_recording_tag_list
     @words = params[:recording][:tag_list].split(',')
     
-    all_tags = Tag.find(:all, :order => 'name ASC')
+    all_tags = Tag.all(:order => 'name ASC')
     last_word = @words.pop.strip
     pattern = Regexp.new("^#{last_word}", "i")
     
