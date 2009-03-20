@@ -1,9 +1,10 @@
 <h1>New recording</h1>
 
 <script type="text/javascript" charset="utf-8">
-  function onStreamRecorded( fileName )
+  function onStreamRecorded( fileName, length )
   {
     $('recording_filename').value = fileName
+    $('recording_length').value = length
   }
 </script>
 
