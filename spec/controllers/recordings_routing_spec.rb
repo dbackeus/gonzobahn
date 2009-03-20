@@ -3,28 +3,32 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe RecordingsController do
   describe "route generation" do
 
-    it "should map { :controller => 'recordings', :action => 'index' } to /recordings" do
+    it "maps #index" do
       route_for(:controller => "recordings", :action => "index").should == "/recordings"
     end
   
-    it "should map { :controller => 'recordings', :action => 'new' } to /recordings/new" do
+    it "maps #new" do
       route_for(:controller => "recordings", :action => "new").should == "/recordings/new"
     end
   
-    it "should map { :controller => 'recordings', :action => 'show', :id => 1 } to /recordings/1" do
-      route_for(:controller => "recordings", :action => "show", :id => 1).should == "/recordings/1"
+    it "maps #show" do
+      route_for(:controller => "recordings", :action => "show", :id => "1").should == "/recordings/1"
     end
   
-    it "should map { :controller => 'recordings', :action => 'edit', :id => 1 } to /recordings/1/edit" do
-      route_for(:controller => "recordings", :action => "edit", :id => 1).should == "/recordings/1/edit"
+    it "maps #edit" do
+      route_for(:controller => "recordings", :action => "edit", :id => "1").should == "/recordings/1/edit"
     end
   
-    it "should map { :controller => 'recordings', :action => 'update', :id => 1} to /recordings/1" do
-      route_for(:controller => "recordings", :action => "update", :id => 1).should == "/recordings/1"
+    it "maps #create" do
+      route_for(:controller => "recordings", :action => "create").should == {:path => "/recordings", :method => :post}
     end
   
-    it "should map { :controller => 'recordings', :action => 'destroy', :id => 1} to /recordings/1" do
-      route_for(:controller => "recordings", :action => "destroy", :id => 1).should == "/recordings/1"
+    it "maps #update" do
+      route_for(:controller => "recordings", :action => "update", :id => "1").should == {:path => "/recordings/1", :method => :put}
+    end
+  
+    it "maps #destroy" do
+      route_for(:controller => "recordings", :action => "destroy", :id => "1").should == {:path => "/recordings/1", :method => :delete}
     end
   end
 
