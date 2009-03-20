@@ -1,0 +1,11 @@
+<tr>
+  <td><%= image_tag recording.thumbnail_path, :style => "width:120px; height:90px;" %></td>
+  <td width="200">
+    <p><%= link_to recording.title, recording %></p>
+    <p>By <%= link_to recording.user, user_recordings_path(recording.user) %></p>
+  </td>
+  <% if recording.user == current_user %>
+  <td><%= link_to 'Edit', edit_recording_path(recording) %></td>
+  <td><%= link_to 'Destroy', recording, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
+</tr>

@@ -1,5 +1,5 @@
 class RecordingsController < ApplicationController
-  before_filter :login_required, :except => :show
+  before_filter :login_required, :except => [:show, :index]
   
   protect_from_forgery :except => :auto_complete_for_recording_tag_list
   
@@ -18,36 +18,18 @@ class RecordingsController < ApplicationController
   end
   
   # GET /recordings
-  # GET /recordings.xml
   def index
-    @recordings = current_user.recordings.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @recordings }
-    end
+    @recordings = Recording.all
   end
   
   # GET /recordings/1
-  # GET /recordings/1.xml
   def show
     @recording = Recording.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @recording }
-    end
   end
 
   # GET /recordings/new
-  # GET /recordings/new.xml
   def new
     @recording = current_user.recordings.build
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @recording }
-    end
   end
 
   # GET /recordings/1/edit
@@ -56,48 +38,37 @@ class RecordingsController < ApplicationController
   end
 
   # POST /recordings
-  # POST /recordings.xml
   def create
     @recording = current_user.recordings.build(params[:recording])
 
-    respond_to do |format|
-      if @recording.save
-        flash[:notice] = 'Recording was successfully created.'
-        format.html { redirect_to(@recording) }
-        format.xml  { render :xml => @recording, :status => :created, :location => @recording }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @recording.errors, :status => :unprocessable_entity }
-      end
+    if @recording.save
+      flash[:notice] = 'Recording was successfully created.'
+      redirect_to @recording
+    else
+      render "new"
     end
   end
 
   # PUT /recordings/1
-  # PUT /recordings/1.xml
   def update
     @recording = current_user.recordings.find(params[:id])
 
-    respond_to do |format|
-      if @recording.update_attributes(params[:recording])
-        flash[:notice] = 'Recording was successfully updated.'
-        format.html { redirect_to(@recording) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @recording.errors, :status => :unprocessable_entity }
-      end
+    if @recording.update_attributes(params[:recording])
+      flash[:notice] = 'Recording was successfully updated.'
+      redirect_to @recording
+    else
+      render "edit"
     end
   end
 
   # DELETE /recordings/1
-  # DELETE /recordings/1.xml
   def destroy
     @recording = current_user.recordings.find(params[:id])
     @recording.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(recordings_url) }
-      format.xml  { head :ok }
-    end
+  end
+  
+  private
+  def user
+    User.find_by_login(params[:user_id])
   end
 end

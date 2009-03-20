@@ -49,6 +49,10 @@ class User < ActiveRecord::Base
     transitions :from => :suspended, :to => :passive
   end
 
+  def self.find_by_login(login)
+    User.first :conditions => ["login like ?", login]
+  end
+
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find_in_state :first, :active, :conditions => {:login => login} # need to get the salt
@@ -58,6 +62,14 @@ class User < ActiveRecord::Base
   # Encrypts some data with the salt.
   def self.encrypt(password, salt)
     Digest::SHA1.hexdigest("--#{salt}--#{password}--")
+  end
+
+  def to_param
+    login.downcase
+  end
+
+  def to_s
+    login
   end
 
   # Encrypts the password with the user salt

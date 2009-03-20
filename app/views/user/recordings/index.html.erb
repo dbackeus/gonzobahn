@@ -1,0 +1,9 @@
+<h1><%= user %>s Recordings</h1>
+
+<% if logged_in? %>
+<p><%= link_to 'New recording', new_recording_path %></p>
+<% end %>
+
+<table>
+  <%= render :partial => "recordings/recording", :collection => @recordings %>
+</table>

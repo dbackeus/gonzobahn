@@ -33,35 +33,6 @@ describe RecordingsController do
     end
   end
 
-  describe "handling GET /recordings.xml" do
-
-    before(:each) do
-      @recording = mock_model(Recording, :to_xml => "XML")
-      Recording.stub!(:find).and_return(@recording)
-    end
-  
-    def do_get
-      @request.env["HTTP_ACCEPT"] = "application/xml"
-      get :index
-    end
-  
-    it "should be successful" do
-      do_get
-      response.should be_success
-    end
-
-    it "should find all recordings" do
-      Recording.should_receive(:find).with(:all).and_return([@recording])
-      do_get
-    end
-  
-    it "should render the found recordings as xml" do
-      @recording.should_receive(:to_xml).and_return("XML")
-      do_get
-      response.body.should == "XML"
-    end
-  end
-
   describe "handling GET /recordings/1" do
 
     before(:each) do
@@ -91,35 +62,6 @@ describe RecordingsController do
     it "should assign the found recording for the view" do
       do_get
       assigns[:recording].should equal(@recording)
-    end
-  end
-
-  describe "handling GET /recordings/1.xml" do
-
-    before(:each) do
-      @recording = mock_model(Recording, :to_xml => "XML")
-      Recording.stub!(:find).and_return(@recording)
-    end
-  
-    def do_get
-      @request.env["HTTP_ACCEPT"] = "application/xml"
-      get :show, :id => "1"
-    end
-
-    it "should be successful" do
-      do_get
-      response.should be_success
-    end
-  
-    it "should find the recording requested" do
-      Recording.should_receive(:find).with("1").and_return(@recording)
-      do_get
-    end
-  
-    it "should render the found recording as xml" do
-      @recording.should_receive(:to_xml).and_return("XML")
-      do_get
-      response.body.should == "XML"
     end
   end
 

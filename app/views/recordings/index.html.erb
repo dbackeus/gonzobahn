@@ -1,16 +1,9 @@
-<h1>My Recordings</h1>
+<h1>Recordings</h1>
+
+<% if logged_in? %>
+<p><%= link_to 'Create recording', new_recording_path %></p>
+<% end %>
 
 <table>
-<% for recording in @recordings %>
-  <tr>
-    <td><%= image_tag recording.thumbnail_path, :style => "width:120px; height:90px;" %></td>
-    <td width="200"><%= link_to recording.title, recording %></td>
-    <td><%= link_to 'Edit', edit_recording_path(recording) %></td>
-    <td><%= link_to 'Destroy', recording, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <%= render @recordings %>
 </table>
-
-<br />
-
-<%= link_to 'New recording', new_recording_path %>
