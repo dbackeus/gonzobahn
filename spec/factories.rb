@@ -22,9 +22,4 @@ Factory.define :recording do |r|
   r.description "Omg..."
   r.filename "test.flv"
   r.association :user
-end  
-
-# Stub out the file handling things from recordings to allow them to be created without hassle
-Recording.any_instance.stubs(:move_file_to_public_dir)
-Recording.any_instance.stubs(:generate_thumbnail)
-Recording.any_instance.stubs(:delete_files)
+end

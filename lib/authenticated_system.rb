@@ -9,7 +9,7 @@ module AuthenticatedSystem
     # Accesses the current user from the session. 
     # Future calls avoid the database because nil is not equal to false.
     def current_user
-      @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie) unless @current_user == false
+      @current_user ||= (login_from_session || login_from_cookie) unless @current_user == false
     end
 
     # Store the given user id in the session.
@@ -60,16 +60,10 @@ module AuthenticatedSystem
     # behavior in case the user is not authorized
     # to access the requested action.  For example, a popup window might
     # simply close itself.
-    def access_denied
-      respond_to do |format|
-        format.html do
-          store_location
-          redirect_to new_session_path
-        end
-        format.any do
-          request_http_basic_authentication 'Web Password'
-        end
-      end
+    def access_denied(message = "You must be logged in to see this page")
+      store_location
+      flash[:error] = message
+      redirect_to new_session_path
     end
 
     # Store the URI of the current request in the session.
@@ -95,13 +89,6 @@ module AuthenticatedSystem
     # Called from #current_user.  First attempt to login by the user id stored in the session.
     def login_from_session
       self.current_user = User.find_by_id(session[:user_id]) if session[:user_id]
-    end
-
-    # Called from #current_user.  Now, attempt to login by basic authentication information.
-    def login_from_basic_auth
-      authenticate_with_http_basic do |username, password|
-        self.current_user = User.authenticate(username, password)
-      end
     end
 
     # Called from #current_user.  Finaly, attempt to login by an expiring token in the cookie.

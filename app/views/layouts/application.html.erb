@@ -11,10 +11,11 @@
   <div id="site">
       <div id="header">
         <% if logged_in? %>
-          You are logged in as: <%= current_user.login %>
+          You are logged in as: <%= current_user.login %> |
+          <%= link_to 'Edit profile', edit_user_path(current_user) %> |
           <%= link_to 'Log out', session_path, :method => :delete %>
         <% else %>
-          You are not loged in.
+          You are not logged in.
           <%= link_to 'Log in', login_path %> or <%= link_to 'Register', new_user_path %>
         <% end %>
       </div>

@@ -3,19 +3,21 @@ class UsersController < ApplicationController
   include AuthenticatedSystem
   
   # Protect these actions behind an admin login
+  before_filter :login_required, :only => [:edit, :update]
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
   before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
   
-
-  # render new.rhtml
+  # GET /users/new
   def new
     @user = User.new
   end
 
+  # GET /users/1/edit
   def edit
     @user = current_user
   end
 
+  # POST /users
   def create
     cookies.delete :auth_token
     # protects against session fixation attacks, wreaks havoc with 
@@ -33,6 +35,7 @@ class UsersController < ApplicationController
     end
   end
   
+  # PUT /user/1
   def update
     @user = current_user
     
@@ -44,6 +47,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /activate/ef97b7453727318bc3bfeeca1252471e48f98fd2
   def activate
     self.current_user = params[:activation_code].blank? ? false : User.find_by_activation_code(params[:activation_code])
     p "Controller: #{params[:activation_code]}"
@@ -74,7 +78,7 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-protected
+  protected
   def find_user
     @user = User.find(params[:id])
   end
