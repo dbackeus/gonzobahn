@@ -42,7 +42,7 @@ namespace :deploy do
   desc "Run pre-symlink tasks" 
   task :after_symlink do
     setup_config
-    migrate
+    #migrate
   end
   
   desc "Clear out old code trees. Only keep 5 latest releases around"
