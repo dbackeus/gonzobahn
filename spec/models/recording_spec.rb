@@ -12,7 +12,7 @@ describe Recording do
     Factory(:recording).should be_valid
   end
   
-  it "should format time in 00:00 format" do
+  it "should return time in 00:00 format" do
     recording = Factory(:recording)
     
     recording.length = 4.563

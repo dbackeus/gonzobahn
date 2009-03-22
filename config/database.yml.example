@@ -17,5 +17,5 @@ production:
   adapter: mysql
   encoding: utf8
   user: root
-  password: eframe1121
+  password:
   database: gonzobahn_production
