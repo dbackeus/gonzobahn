@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.register! if @user.valid?
     if @user.errors.empty?
-      redirect_back_or_default('/')
+      redirect_to root_path
       flash[:notice] = "Thanks for signing up! Please activate your account by clicking on the link in your activation mail."
     else
       render "new"
