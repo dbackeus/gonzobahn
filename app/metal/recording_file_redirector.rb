@@ -1,3 +1,5 @@
+# NOTE: Doesn't seem to work in Phusion Passenger so falls back on redirect_to in controller action
+
 # Allow the metal piece to run in isolation
 require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Rails)
 

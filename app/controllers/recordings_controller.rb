@@ -17,6 +17,12 @@ class RecordingsController < ApplicationController
     render :layout => false
   end
   
+  # GET /recordings/1/file
+  def file
+    recording = Recording.find(params[:id])
+    redirect_to "http://#{SITE_HOST}/system/recordings/#{recording.id}/#{recording.filename}"
+  end
+  
   # GET /recordings
   def index
     @recordings = Recording.all

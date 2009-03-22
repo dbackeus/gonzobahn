@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :recordings, :only => :index, :path_prefix => "/:user_id"
   end
   
-  map.resources :recordings, :collection => { :auto_complete_for_recording_tag_list => :post }
+  map.resources :recordings, :collection => { :auto_complete_for_recording_tag_list => :post }, :member => { :file => :get }
 
   map.root :controller => "recordings"
 end
