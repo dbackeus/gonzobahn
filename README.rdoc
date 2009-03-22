@@ -35,4 +35,10 @@ Now start implementing your awesome improvements.
 
 == Deploying
 
-TODO...
+(this section is work in progress)
+
+The instructions are written for Ubuntu 8.04.
+
+=== Install ffmpeg
+
+Follow the guide - http://po-ru.com/diary/up-to-date-ffmpeg-on-ubuntu-hardy/

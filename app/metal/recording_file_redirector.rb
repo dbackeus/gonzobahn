@@ -11,7 +11,7 @@ class RecordingFileRedirector
       recording = Recording.find(id)
       
       [303, { "Content-Type" => "text/html", "Content-Length" => "0", 
-      "Location" => "http://localhost:3000/system/recordings/#{id}/#{recording.filename}" }, []]
+      "Location" => "http://#{SITE_HOST}/system/recordings/#{id}/#{recording.filename}" }, []]
     else
       [404, {"Content-Type" => "text/html"}, ["Not Found"]]
     end

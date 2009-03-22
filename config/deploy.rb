@@ -35,7 +35,8 @@ namespace :deploy do
   desc "Copy or link in server specific configuration files"
   task :setup_config do
     run <<-CMD
-    cp #{release_path}/config/database.yml.example #{release_path}/config/database.yml
+    cp #{release_path}/config/database.yml.example #{release_path}/config/database.yml &&
+    ln -s #{shared_path}/config/directories.rb #{current_path}/config/initializers/directories.rb
     CMD
   end
 

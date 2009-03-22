@@ -1,3 +1,4 @@
 SITE_HOST = 'localhost:3000'
+FMS_HOST = 'localhost'
 RED5_RECORDINGS_DIR = '/Applications/Red5/webapps/oflaDemo/streams'
 PUBLIC_RECORDINGS_DIR = "#{RAILS_ROOT}/public/system/recordings"
