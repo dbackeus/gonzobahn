@@ -7,6 +7,7 @@ class Recording < ActiveRecord::Base
   validates_presence_of :length
   
   belongs_to :user
+  has_many :comments, :as => :commentable
   
   after_create :move_file_to_public_dir
   after_create :generate_thumbnail

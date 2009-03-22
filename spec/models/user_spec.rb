@@ -6,6 +6,9 @@ include AuthenticatedTestHelper
 
 describe User do
   
+  it { should have_many(:recordings) }
+  it { should have_many(:comments) }
+  
   before(:each) do
     @quentin = Factory(:user, :login => "quentin", :password => "test", :password_confirmation => "test")
     @quentin.activate!

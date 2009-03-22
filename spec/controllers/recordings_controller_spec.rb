@@ -4,9 +4,7 @@ describe RecordingsController do
   integrate_views
   
   before(:each) do
-    Recording.any_instance.stubs(:move_file_to_public_dir)
-    Recording.any_instance.stubs(:generate_thumbnail)
-    Recording.any_instance.stubs(:delete_files)
+    stub_recordings
   end
   
   describe "handling GET /recordings" do

@@ -6,14 +6,14 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   
   map.resources :users
-
   map.resource :session
+  map.resource :comments, :only => :create
 
   map.namespace("user") do |user|
     user.resources :recordings, :only => :index, :path_prefix => "/:user_id"
   end
   
   map.resources :recordings, :collection => { :auto_complete_for_recording_tag_list => :post }, :member => { :file => :get }
-
+  
   map.root :controller => "recordings"
 end

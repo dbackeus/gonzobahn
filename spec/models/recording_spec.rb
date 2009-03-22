@@ -2,10 +2,14 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Recording do
   
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:filename) }
+  it { should validate_presence_of(:user) }
+  it { should validate_presence_of(:length) }
+  it { should have_many(:comments) }
+  
   before(:each) do
-    Recording.any_instance.stubs(:move_file_to_public_dir)
-    Recording.any_instance.stubs(:generate_thumbnail)
-    Recording.any_instance.stubs(:delete_files)
+    stub_recordings
   end
   
   it "should be createable" do

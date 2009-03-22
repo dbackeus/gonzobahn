@@ -1,0 +1,6 @@
+<% div_for comment do %>
+  <% if comment.user == current_user %>
+  <% end %>
+  <cite><%= comment.user %> said on <%= pretty_time(comment.updated_at) %></cite>
+  <%= RedCloth.new(comment.comment).to_html %>
+<% end %>

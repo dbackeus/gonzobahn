@@ -79,6 +79,20 @@ div.recording {
 	padding: 10px;
 }
 
+#new_comment textarea {
+  height: 100px;
+}
+
+div.comment {
+  background: #EEE;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+div.comment cite {
+  color: gray;
+}
+
 /* === Flash Messages === */
 
 div.flash_message {

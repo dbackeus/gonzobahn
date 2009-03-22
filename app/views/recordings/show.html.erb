@@ -20,3 +20,23 @@
 <% if @recording.user == current_user %>
 <%= link_to 'Edit', edit_recording_path(@recording) %>
 <% end %>
+
+<% if @recording.comments.present? %>
+<h1>Comments</h1>
+
+<%= render @recording.comments %>
+<% end %>
+
+<h1>Leave a Comment</h1>
+
+<% if logged_in? %>
+<% form_for @recording.comments.build do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :commentable_id %>
+  <%= f.hidden_field :commentable_type %>
+  <%= f.text_area :comment %><br />
+  <%= f.submit "Submit" %>
+<% end %>
+<% else %>
+  <p>You must be logged in to add comments.</p>
+<% end %>

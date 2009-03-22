@@ -18,8 +18,11 @@ Rails::Initializer.run do |config|
   SITE_HOST = "localhost:3000"
   FMS_HOST = "localhost"
   
+  config.gem "RedCloth", :lib => "redcloth"
+  
   unless RAILS_ENV == "production"
     config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
+    config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
     config.gem "mocha"
   end
   
