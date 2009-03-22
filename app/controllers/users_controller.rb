@@ -27,9 +27,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.register! if @user.valid?
     if @user.errors.empty?
-      self.current_user = @user
       redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up!"
+      flash[:notice] = "Thanks for signing up! Please activate your account by clicking on the link in your activation mail."
     else
       render "new"
     end
@@ -52,9 +51,9 @@ class UsersController < ApplicationController
     self.current_user = params[:activation_code].blank? ? false : User.find_by_activation_code(params[:activation_code])
     if logged_in? && !current_user.active?
       current_user.activate!
-      flash[:notice] = "Signup complete!"
+      flash[:notice] = "Signup complete! You are now logged in and ready to go..."
     end
-    redirect_back_or_default('/')
+    redirect_to user_recordings_path(current_user)
   end
 
   def suspend

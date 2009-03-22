@@ -67,7 +67,7 @@ describe UsersController do
     get :activate, :activation_code => user.activation_code
     User.authenticate('aaron', 'test').should == user
     flash[:notice].should_not be_nil
-    response.should redirect_to('/')
+    response.should redirect_to(user_recordings_path(user))
   end
   
   it 'does not activate user with blank key' do

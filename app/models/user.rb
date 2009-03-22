@@ -125,7 +125,7 @@ class User < ActiveRecord::Base
   
   def make_activation_code
     self.deleted_at = nil
-    self.activation_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
+    self.activation_code ||= Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
   end
   
   def do_delete
