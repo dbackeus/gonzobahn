@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     
     @subject    += 'Please activate your new account'
-    @body[:url]  = "http://localhost:3000/activate/#{user.activation_code}"
+    @body[:url]  = "http://#{SITE_HOST}/activate/#{user.activation_code}"
   
   end
   
@@ -11,14 +11,14 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     
     @subject    += 'Your account has been activated!'
-    @body[:url]  = "http://localhost:3000/"
+    @body[:url]  = "http://#{SITE_HOST}/"
   end
   
   protected
   def setup_email(user)
     recipients user.email
-    from "noreply@gonzobahn.com"
-    subject "[YOURSITE] "
+    from "noreply@gonzobahn.se"
+    subject "[Gonzobahn] "
     @body[:user] = user
   end
 end
