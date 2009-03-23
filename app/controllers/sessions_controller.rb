@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Logged in successfully"
       redirect_to user_recordings_path(current_user)
     else
+      flash.now[:error] = "Login failed"
       render "new"
     end
   end
@@ -24,6 +25,6 @@ class SessionsController < ApplicationController
     cookies.delete :auth_token
     reset_session
     flash[:notice] = "You have been logged out."
-    redirect_back_or_default('/')
+    redirect_to root_path
   end
 end

@@ -11,29 +11,37 @@ describe SessionsController do
     @user.activate!
   end
   
-  it 'sets user_id in session' do
-    post :create, :login => 'quentin', :password => 'test'
-    session[:user_id].should == @user.id
+  describe "successful login" do
+    before(:each) do
+      post :create, :login => 'quentin', :password => 'test'
+    end
+  
+    it { should redirect_to(user_recordings_path(@user)) }
+    it { should set_session(:user_id) }
   end
   
-  it "redirects to users recordings" do
-    post :create, :login => 'quentin', :password => 'test'
-    response.should redirect_to(user_recordings_path(@user))
+  describe "failed login" do
+    before(:each) do
+      post :create, :login => 'quentin', :password => 'bad password'
+    end
+  
+    it { should respond_with(:success) }
+    it { should render_template("new") }
+    it { should set_the_flash.to(/failed/i) }
+    it { should_not set_session(:user_id) }
   end
   
-  it 'fails login and does not redirect' do
-    post :create, :login => 'quentin', :password => 'bad password'
-    session[:user_id].should be_nil
-    response.should be_success
+  describe "logout" do
+    before(:each) do
+      log_in
+      get :destroy
+    end
+    
+    it { should set_the_flash.to(/logged out/i) }
+    it { should set_session(:user_id).to(nil) }
+    it { should redirect_to(root_path) }
   end
-
-  it 'logs out' do
-    log_in(:quentin)
-    get :destroy
-    session[:user_id].should be_nil
-    response.should be_redirect
-  end
-
+  
   it 'remembers me' do
     post :create, :login => 'quentin', :password => 'test', :remember_me => "1"
     response.cookies["auth_token"].should_not be_nil
