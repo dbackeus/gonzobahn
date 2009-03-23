@@ -1,9 +1,3 @@
-# Be sure to restart your server when you modify this file
-
-# Uncomment below to force Rails into production mode when
-# you don't control web/app server and can't set it the proper way
-# ENV['RAILS_ENV'] ||= 'production'
-
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 
@@ -13,10 +7,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
   
   require 'ftools'
-  
-  # Override this in production.rb
-  SITE_HOST = "localhost:3000"
-  FMS_HOST = "localhost"
   
   config.gem "RedCloth", :lib => "redcloth"
   
@@ -42,5 +32,5 @@ Rails::Initializer.run do |config|
   config.active_record.observers = :user_observer
 
   # Make Active Record use UTC-base instead of local time
-  # config.active_record.default_timezone = :utc
+  #config.active_record.default_timezone = :utc
 end
