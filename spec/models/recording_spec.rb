@@ -8,6 +8,8 @@ describe Recording do
   it { should validate_presence_of(:length) }
   it { should have_many(:comments) }
   
+  it { should have_named_scope(:recent).finding(:limit => 5, :order => "created_at desc") }
+  
   before(:each) do
     stub_recordings
   end

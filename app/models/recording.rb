@@ -14,6 +14,8 @@ class Recording < ActiveRecord::Base
   
   after_destroy :delete_files
   
+  named_scope :recent, :limit => 5, :order => "created_at desc"
+  
   def directory
     "#{PUBLIC_RECORDINGS_DIR}/#{id}"
   end
