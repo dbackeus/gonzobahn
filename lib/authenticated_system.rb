@@ -63,7 +63,7 @@ module AuthenticatedSystem
     def access_denied(message = "You must be logged in to see this page")
       store_location
       flash[:error] = message
-      redirect_to new_session_path
+      redirect_to login_path
     end
 
     # Store the URI of the current request in the session.

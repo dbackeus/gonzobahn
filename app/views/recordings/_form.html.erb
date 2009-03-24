@@ -3,20 +3,25 @@
   <%= f.hidden_field :length %>
 
   <p>
-    <b>Title</b><br />
+    <label for="recording_title">Title</label><br />
     <%= f.text_field :title %>
   </p>
 
   <p>
-    <b>Tags (comma separated)</b><br />
+    <label for="recording_tag_list">Tags (comma separated)</label><br />
     <%= text_field_with_auto_complete :recording, :tag_list %>
   </p
   
   <p>
-    <b>Description</b><br />
+    <label for="recording_description">Description</label><br />
     <%= f.text_area :description %>
   </p>
-
+  
+  <p>
+    <label for="recording_private">Make recording private</label><br />
+    <%= f.check_box :private %>
+  </p>
+  
   <p>
     <%= f.submit "Save" %>
   </p>

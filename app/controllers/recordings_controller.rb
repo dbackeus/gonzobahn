@@ -19,18 +19,19 @@ class RecordingsController < ApplicationController
   
   # GET /recordings/1/file
   def file
-    recording = Recording.find(params[:id])
-    redirect_to "http://#{SITE_HOST}/system/recordings/#{recording.id}/#{recording.filename}"
+    @recording = Recording.find(params[:id])
+    redirect_to "http://#{SITE_HOST}/system/recordings/#{@recording.id}/#{@recording.filename}" if allow_viewing?
   end
   
   # GET /recordings
   def index
-    @recordings = Recording.by_created_at(:desc)
+    @recordings = Recording.published.by_created_at(:desc)
   end
   
   # GET /recordings/1
   def show
     @recording = Recording.find(params[:id])
+    allow_viewing?
   end
 
   # GET /recordings/new
@@ -79,5 +80,16 @@ class RecordingsController < ApplicationController
   private
   def user
     User.find_by_login(params[:user_id])
+  end
+  
+  def allow_viewing?
+    return true unless @recording.private?
+    
+    if @recording.user != current_user
+      access_denied("This recording is private and can only be seen by #{@recording.user}")
+      false
+    else
+      true
+    end
   end
 end

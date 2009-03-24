@@ -10,32 +10,47 @@ describe RecordingsController do
   describe "handling GET /recordings" do
     before(:each) do
       3.downto(1) { |i| Factory(:recording, :created_at => i.months.ago) }
+      Factory(:recording, :private => true)
       get :index
     end
     
-    it "should be successful" do
-      response.should be_success
-    end
-    
-    it "should assign all recordings for the view" do
-      assigns[:recordings].should == Recording.by_created_at(:desc)
-    end
+    it { should respond_with(:success) }
+    it { should assign_to(:recordings).with(Recording.published.by_created_at(:desc)) }
   end
   
   describe "handling GET /recordings/1" do
-  
     before(:each) do
       @recording = Factory(:recording)
       get :show, :id => @recording.id
     end
+    
+    it { should respond_with(:success) }
+    it { should assign_to(:recording).with(@recording) }
+  end
   
-    it "should be successful" do
-      response.should be_success
+  describe "handling GET /recordings/1 with private movie" do
+  
+    describe "with user of recording" do
+      before(:each) do
+        log_in
+        recording = Factory(:recording, :private => true, :user => current_user)
+        get :show, :id => recording.id
+      end
+      
+      it { should respond_with(:success) }
+    end
+    
+    describe "with an impostor" do
+      before(:each) do
+        log_in
+        recording = Factory(:recording, :private => true)
+        get :show, :id => recording.id
+      end
+      
+      it { should redirect_to(login_path) }
+      it { should set_the_flash.to(/is private/i) }
     end
   
-    it "should assign the recording for the view" do
-      assigns[:recording].should == @recording
-    end
   end
   
   describe "handling GET /recordings/new" do

@@ -2,7 +2,7 @@ class User::RecordingsController < ApplicationController
     
   # GET /recordings
   def index
-    @recordings = user.recordings.all
+    @recordings = user.recordings.by_created_at(:desc)
   end
   
   private

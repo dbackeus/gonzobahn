@@ -8,7 +8,7 @@ require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Ra
 class RecordingFileRedirector
   def self.call(env)
     path = env["PATH_INFO"]
-    if path =~ /^\/recordings\/.[0-9]\/file/
+    if false #path =~ /^\/recordings\/.[0-9]\/file/
       id = path.split("\/")[-2]
       recording = Recording.find(id)
       

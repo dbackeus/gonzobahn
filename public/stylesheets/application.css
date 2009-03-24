@@ -29,6 +29,10 @@ h1 a:hover {
   text-decoration: none;
 }
 
+label {
+  font-weight: bold;
+}
+
 #content h1 {
   font-family: "Gill Sans", "Trebuchet MS",Helvetica, Arial, sans-serif;
   font-size: 24px;

@@ -6,9 +6,11 @@ describe Recording do
   it { should validate_presence_of(:filename) }
   it { should validate_presence_of(:user) }
   it { should validate_presence_of(:length) }
+  
   it { should have_many(:comments) }
   
   it { should have_named_scope(:recent).finding(:limit => 5, :order => "created_at desc") }
+  it { should have_named_scope(:published).finding(:conditions => {:private => false}) }
   
   before(:each) do
     stub_recordings
