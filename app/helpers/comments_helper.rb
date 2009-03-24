@@ -1,5 +1,5 @@
 module CommentsHelper
-  def pretty_time(time)
+  def time_pretty(time)
     time.strftime("%Y-%m-%d %H:%M")
   end
 end

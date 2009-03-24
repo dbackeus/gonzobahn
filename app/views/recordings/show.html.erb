@@ -9,6 +9,11 @@
 </div>
 
 <p>
+  <b>Recorded:</b>
+  <%= time_pretty(@recording.created_at) %> (<%=time_ago @recording.created_at %>)
+</p>
+
+<p>
   <b>Length:</b>
   <%=h @recording.length_pretty %>
 </p>
