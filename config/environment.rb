@@ -9,6 +9,7 @@ Rails::Initializer.run do |config|
   require 'ftools'
   
   config.gem "RedCloth", :lib => "redcloth"
+  config.gem "thoughtbot-pacecar", :lib => "pacecar", :source => "http://gems.github.com"
   
   unless RAILS_ENV == "production"
     config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"

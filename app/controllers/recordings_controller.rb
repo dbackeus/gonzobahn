@@ -25,7 +25,7 @@ class RecordingsController < ApplicationController
   
   # GET /recordings
   def index
-    @recordings = Recording.all
+    @recordings = Recording.by_created_at(:desc)
   end
   
   # GET /recordings/1

@@ -9,7 +9,7 @@ describe RecordingsController do
   
   describe "handling GET /recordings" do
     before(:each) do
-      2.times { Factory(:recording) }
+      3.downto(1) { |i| Factory(:recording, :created_at => i.months.ago) }
       get :index
     end
     
@@ -18,7 +18,7 @@ describe RecordingsController do
     end
     
     it "should assign all recordings for the view" do
-      assigns[:recordings].should == Recording.all
+      assigns[:recordings].should == Recording.by_created_at(:desc)
     end
   end
   

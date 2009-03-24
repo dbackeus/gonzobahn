@@ -1,4 +1,6 @@
 class Recording < ActiveRecord::Base
+  include Pacecar
+  
   acts_as_taggable
   
   validates_presence_of :title  
