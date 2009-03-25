@@ -1,5 +1,5 @@
 class RecordingsController < ApplicationController
-  before_filter :login_required, :except => [:show, :index, :file]
+  before_filter :authenticate, :except => [:show, :index, :file]
   
   protect_from_forgery :except => :auto_complete_for_recording_tag_list
   

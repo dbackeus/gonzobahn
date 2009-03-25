@@ -17,3 +17,8 @@
 
 .refactor
 - Använd bara ""
+- state_machine på User
+
+.test
+- recording/1/file
+- duztdruid/recordings

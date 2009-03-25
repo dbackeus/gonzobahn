@@ -6,11 +6,12 @@ require 'spec'
 require 'spec/rails'
 require 'shoulda'
 
-%w( controller_spec_helper ).each do |file| 
+%w( matchers/matchers controller_spec_helper ).each do |file| 
   require File.join(File.dirname(__FILE__), file)
 end
 
 Spec::Runner.configure do |config|
+  config.include(Matchers::ActionController, :type => :controllers)
   config.include(ControllerSpecHelper, :type => :controllers)
   config.mock_with :mocha
 end

@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   
+  before_filter :authenticate
+  
   def create
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
