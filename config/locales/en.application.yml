@@ -2,3 +2,16 @@ en:
   save: Save
   edit: Edit
   new: New
+  profile: profile
+  log_out: Log out
+  log_in: Log in
+  sign_up: Register
+  or: or
+  
+  layouts:
+    user_info:
+      logged_in: "You are logged in as:"
+      not_logged_in: You are not logged in.
+    menu:
+      home: Home
+      recordings: Recordings

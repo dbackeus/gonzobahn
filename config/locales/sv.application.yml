@@ -1,22 +1,17 @@
 sv:
-  activerecord:
-    attributes:
-      user:
-        login: Användarnamn
-        password: Lösenord
-        password_confirmation: Lösenordsbekräftelse
-        recordings: Utbildningar
-        comments: Kommentarer
-      recording:
-        title: Titel
-        description: Beskrivning
-        private: Privat
-        length: Längd
-        filename: Filnamn
-    models:
-      recording: Inspelning
-      user: Användare
-      
   save: Spara
   edit: Redigera
   new: Ny
+  profile: profil
+  log_out: Logga ut
+  log_in: Logga in
+  sign_up: Registrera
+  or: eller
+  
+  layouts:
+    user_info:
+      logged_in: "Du är inloggad som:"
+      not_logged_in: Du är inte inloggad.
+    menu:
+      home: Hem
+      recordings: Inspelningar

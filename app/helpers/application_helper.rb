@@ -5,4 +5,9 @@ module ApplicationHelper
     "#{t(prefix)} #{object.class.human_name}"
   end
   
+  def translate_and_join(*keys)
+    keys.collect { |key| translate(key) }.join(" ")
+  end
+  alias :tj :translate_and_join
+  
 end
