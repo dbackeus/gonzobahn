@@ -1,0 +1,121 @@
+sv:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names: [Söndag, Måndag, Tisdag, Onsdag, Torsdag, Fredag, Lördag]
+    abbr_day_names: [Sön, Mån, Tis, Ons, Tor, Fre, Lör]
+    month_names: [~, Januari, Februari, Mars, April, Maj, Juni, Juli, Augusti, September, Oktober, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, Maj, Jun, Jul, Aug, Sep, Okt, Nov, Dec]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%A, %e. %B %Y, %H:%M Uhr"
+      time: "%H:%M"
+      short: "%e. %B, %H:%M Uhr"
+      long: "%A, %e. %B %Y, %H:%M Uhr"
+      only_second: "%S"
+
+    am: ""
+    pm: ""
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: "en halv minut"
+      less_than_x_seconds:
+        one:   "mindre än 1 sekund"
+        other: "mindre än {{count}} sekunder"
+      x_seconds:
+        one:   "1 sekund"
+        other: "{{count}} sekunder"
+      less_than_x_minutes:
+        one:   "mindre än en minut"
+        other: "mindre än {{count}} minuter"
+      x_minutes:
+        one:   "1 minut"
+        other: "{{count}} minuter"
+      about_x_hours:
+        one:   "ungefär 1 timme"
+        other: "ungefär {{count}} timmar"
+      x_days:
+        one:   "1 dag"
+        other: "{{count}} dagar"
+      about_x_months:
+        one:   "ungefär 1 månad"
+        other: "ungefär {{count}} månader"
+      x_months:
+        one:   "1 månad"
+        other: "{{count}} månader"
+      about_x_years:
+        one:   "ungefär 1 år"
+        other: "ungefär {{count}} år"
+      over_x_years:
+        one:   "över 1 år"
+        other: "över {{count}} år"
+      
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: 'SEK'
+        format: '%n %u'
+
+  support:
+    array:
+      sentence_connector: "och"
+      skip_last_comma: true
+        
+  activerecord:
+    errors:
+      # The values :model, :attribute and :value are always available for interpolation
+      # The value :count is available when applicable. Can be used for pluralization.
+      messages:
+        inclusion: "har ett ogiltigt värde"
+        exclusion: "är reserverad"
+        invalid: "har ett ogiltigt värde"
+        confirmation: "överensstämmer inte med bekräftelsen"
+        accepted: "måste accepteras"
+        empty: "kan inte vara tomt"
+        blank: "kan inte vara tomt"
+        too_long: "är för lång (får inte ha mer än {{count}} tecken)"
+        too_short: "är för kort (får inte ha mindre än {{count}} tecken)"
+        wrong_length: "har fel längd (måste ha precis {{count}} tecken)"
+        taken: "är upptagen"
+        not_a_number: "är inte ett tal"
+        greater_than: "måste vara större än {{count}}"
+        greater_than_or_equal_to: "måste vara större än eller lika med {{count}}"
+        equal_to: "måste vara lika med {{count}}"
+        less_than: "måste vara mindre än {{count}}"
+        less_than_or_equal_to: "måste vara mindre än eller lika med {{count}}"
+        odd: "måste vara ojämn"
+        even: "måste vara jämn"
+        percent: "måste vara ett heltal (procent) mellan 0 och 100"
+      template:
+        header:
+          one:    "Ett fel hindrade formuläret från att sparas"
+          other:  "{{count}} fel hindrade formuläret från att sparas."
+        # The variable :count is also available
+        body: "Följande fält behöver rättas:"
+    attributes:
+      user:
+        login: Användarnamn
+        password: Lösenord
+        password_confirmation: Lösenordsbekräftelse
+        recordings: Utbildningar
+        comments: Kommentarer
+      recording:
+        title: Titel
+        description: Beskrivning
+        private: Privat
+        length: Längd
+        filename: Filnamn
+    models:
+      recording: Inspelning
+      user: Användare
