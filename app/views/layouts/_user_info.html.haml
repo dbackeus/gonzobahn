@@ -1,14 +1,15 @@
 %div#user_info
-  -if logged_in?
-    %p
+  %p
+    -unless Rails.env.production?
+      = I18n.available_locales.collect { |locale| link_to locale, params.merge(:locale => locale) }.join(" | ")
+    -if logged_in?
       = t(".logged_in")
       = link_to current_user, user_recordings_path(current_user)
       |
       = link_to tj("edit", "profile"), edit_user_path(current_user)
       |
       = link_to t('log_out'), session_path, :method => :delete
-  -else
-    %p
+    -else
       = t(".not_logged_in")
       = link_to t('log_in'), login_path
       = t "or"

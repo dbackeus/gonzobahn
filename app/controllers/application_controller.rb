@@ -1,6 +1,3 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
   
   helper :all
@@ -9,9 +6,15 @@ class ApplicationController < ActionController::Base
   
   include AuthenticatedSystem
   
+  before_filter :set_locale
   #before_filter :fake_flash_messages
   
   private
+  def set_locale
+    session[:locale] = params[:locale] if params[:locale].present?
+    I18n.locale = session[:locale]
+  end
+  
   def fake_flash_messages
     flash.now[:notice] = "Testmeddelande"
     flash.now[:error] = "Testmeddelande"
