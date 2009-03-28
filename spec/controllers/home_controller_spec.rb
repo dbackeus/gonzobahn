@@ -6,12 +6,12 @@ describe HomeController do
     
     before(:each) do
       stub_recordings
-      6.times { Factory(:recording) }
+      6.downto(1) { |i| Factory(:recording, :created_at => i.months.ago, :private => i.odd?) }
       get :index
     end
     
     it { should respond_with(:success) }
-    it { should assign_to(:recordings).with(Recording.recent) }
+    it { should assign_to(:recordings).with(Recording.published.recent) }
     
   end
 

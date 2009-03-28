@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   
   def index
-    @recordings = Recording.recent
+    @recordings = Recording.published.recent
   end
   
 end
