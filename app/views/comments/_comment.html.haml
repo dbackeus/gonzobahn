@@ -2,5 +2,5 @@
   %cite
     = time_ago comment.created_at
     = link_to comment.user, user_recordings_path(comment.user)
-    said
+    =t "said"
   = RedCloth.new(comment.comment).to_html

@@ -1,0 +1,22 @@
+sv:
+  activerecord:
+    attributes:
+      user:
+        login: Användarnamn
+        password: Lösenord
+        password_confirmation: Lösenordsbekräftelse
+        recordings: Utbildningar
+        comments: Kommentarer
+      recording:
+        title: Titel
+        description: Beskrivning
+        private: Privat
+        length: Längd
+        filename: Filnamn
+    models:
+      recording: Inspelning
+      user: Användare
+      
+  save: Spara
+  edit: Redigera
+  new: Ny

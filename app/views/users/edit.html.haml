@@ -1,4 +1,4 @@
--@page_title = "Edit user"
+-@page_title = title_for(@user, "edit")
 
 - form_for @user do |f|
   = f.error_messages
@@ -6,4 +6,4 @@
   = f.password_field :password
   = f.password_field :password_confirmation
   
-  = f.submit "Save"
+  = f.submit t("save")
