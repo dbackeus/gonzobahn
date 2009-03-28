@@ -1,6 +1,6 @@
 -div_for comment do
   %cite
-    = time_ago comment.created_at
+    = time_ago(comment.created_at).capitalize
+    =t "by"
     = link_to comment.user, user_recordings_path(comment.user)
-    =t "said"
   = RedCloth.new(comment.comment).to_html

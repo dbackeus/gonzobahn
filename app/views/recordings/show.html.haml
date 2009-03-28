@@ -5,7 +5,7 @@
 
 %p
   %strong Recorded:
-  = time_pretty(@recording.created_at) + "(" + time_ago(@recording.created_at) + ")"
+  = time_pretty(@recording.created_at) + " (" + time_ago(@recording.created_at) + ")"
 
 %p
   %strong Length:
@@ -15,19 +15,19 @@
   =h @recording.description
 
 -if @recording.user == current_user
-  =link_to "Edit", edit_recording_path(@recording)
+  =link_to t("edit"), edit_recording_path(@recording)
 
 -if @recording.comments.present?
-  %h1 Comments
+  %h1= t("comments.comments")
   = render @recording.comments
 
-%h1 Leave a Comment
+%h1= t("comments.leave_comment")
 
 -if logged_in?
   -form_for @recording.comments.build do |f|
     = f.hidden_field :commentable_id
     = f.hidden_field :commentable_type
     = f.text_area :comment
-    = f.submit "Submit"
+    = f.submit t("submit")
 -else
-  %p You must be logged in to add comments.
+  %p= t("comments.must_be_logged_in")

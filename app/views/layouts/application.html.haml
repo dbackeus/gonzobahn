@@ -1,13 +1,13 @@
 !!!
 %html{html_attrs(I18n.locale)}
   %head
-    %title= "GonzoBahn - #{@page_title}"
+    %title= "#{t('site_name')} - #{@page_title}"
     = javascript_include_tag :all
     = stylesheet_link_tag "application"
   %body
     #site
       #header
-        %h1 Loud Thinking
+        %h1= t("site_name")
         = render :partial => "layouts/user_info"
         .clear
       #menu

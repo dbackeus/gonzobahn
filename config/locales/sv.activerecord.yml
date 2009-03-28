@@ -13,6 +13,8 @@ sv:
         private: Privat
         length: Längd
         filename: Filnamn
+      comment:
+        comment: Kommentar
     models:
       recording: Inspelning
       user: Användare

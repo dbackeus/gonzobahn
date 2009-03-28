@@ -1,18 +1,18 @@
--@page_title = "Log In"
+-@page_title = t("log_in")
 
 -form_tag session_path do
   %p
-    = label_tag 'login', "Username"
+    = label_tag 'login', User.human_attribute_name('login')
     %br
     = text_field_tag 'login'
   
   %p
-    = label_tag 'password', "Password"
+    = label_tag 'password', User.human_attribute_name('password')
     %br
     = password_field_tag 'password'
     
   %p
-    = label_tag 'remember_me', "Remember me"
+    = label_tag 'remember_me', t(".remember_me")
     = check_box_tag 'remember_me'
   
-  %p= submit_tag "Log in"
+  %p= submit_tag t("log_in")

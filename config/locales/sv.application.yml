@@ -1,12 +1,26 @@
 sv:
+  site_name: Diktafon 2.0
+  
   save: Spara
   edit: Redigera
+  create: Skapa
+  destroy: Ta bort
   new: Ny
   profile: profil
   log_out: Logga ut
   log_in: Logga in
-  sign_up: Registrera
+  sign_up: Registrera konto
   or: eller
+  ago: sedan
+  by: av
+  back: Tillbaka
+  submit: Skicka
+  show: Visa
+  
+  comments:
+    comments: Kommentarer
+    leave_comment: Lämna en kommentar
+    must_be_logged_in: Du måste vara inloggad för att lämna en kommentar
   
   layouts:
     user_info:
@@ -15,3 +29,20 @@ sv:
     menu:
       home: Hem
       recordings: Inspelningar
+  home:
+    index:
+      welcome: Välkommen
+      recent_recordings: Senaste inspelningarna
+  recordings:
+    index:
+      title: Inspelningar
+    form:
+      tags: Taggar (separerade med komma)
+      private: Gör inspelningen privat
+  user:
+    recordings:
+      index:
+        title: "{{user}}s inspelningar"
+  sessions:
+    new:
+      remember_me: Kom ihåg mig på den här datorn

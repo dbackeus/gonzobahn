@@ -1,6 +1,6 @@
--@page_title = "Recordings"
+-@page_title = t(".title")
 
 -if logged_in?
-  %p= link_to 'Create recording', new_recording_path
+  %p= link_to title_for(Recording.new, "create"), new_recording_path
 
 = render @recordings

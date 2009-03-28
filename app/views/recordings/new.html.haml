@@ -1,4 +1,4 @@
--@page_title = "New Recording"
+-@page_title = title_for(@recording, "new")
 
 :javascript
   function onStreamRecorded( fileName, length )
@@ -12,4 +12,4 @@
 
 = render :partial => "form"
 
-= link_to "Back", recordings_path
+= link_to t("back"), recordings_path

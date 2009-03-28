@@ -1,4 +1,4 @@
--@page_title "Registration"
+-@page_title = t("sign_up")
 
 - form_for @user do |f|
   = f.error_messages
@@ -8,4 +8,4 @@
   = f.password_field :password
   = f.password_field :password_confirmation
   
-  = f.submit "Sign up"
+  = f.submit t("submit")

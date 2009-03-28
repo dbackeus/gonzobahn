@@ -5,9 +5,9 @@
   %p= link_to recording.title, recording
   -if modifiable
     %p
-      = link_to 'Edit', edit_recording_path(recording)
-      = link_to 'Destroy', recording, :confirm => 'Are you sure?', :method => :delete
+      = link_to t("edit"), edit_recording_path(recording)
+      = link_to t("destroy"), recording, :confirm => t("are_you_sure"), :method => :delete
   -else
     %p
-      By
+      = t("by").capitalize
       = link_to recording.user, user_recordings_path(recording.user)

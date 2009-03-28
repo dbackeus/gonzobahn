@@ -1,12 +1,26 @@
 en:
+  site_name: Dictaphone 2.0
+
   save: Save
   edit: Edit
+  create: Create
+  destroy: Delete
   new: New
   profile: profile
   log_out: Log out
   log_in: Log in
   sign_up: Register
   or: or
+  ago: ago
+  by: by
+  back: Back
+  submit: Submit
+  show: Show
+  
+  comments:
+    comments: Comments
+    leave_comment: Leave a Comment
+    must_be_logged_in: You must be logged in to add comments.
   
   layouts:
     user_info:
@@ -15,3 +29,20 @@ en:
     menu:
       home: Home
       recordings: Recordings
+  home:
+    index:
+      welcome: Welcome
+      recent_recordings: Latest Recordings
+  recordings:
+    index:
+      title: Recordings
+    form:
+      tags: Tags (comma separated)
+      private: Make recording private
+  user:
+    recordings:
+      index:
+        title: "{{user}}s Recordings"
+  sessions:
+    new:
+      remember_me: Remember me on this computer
