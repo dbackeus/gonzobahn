@@ -1,0 +1,11 @@
+-@page_title "Registration"
+
+- form_for @user do |f|
+  = f.error_messages
+
+  = f.text_field :login
+  = f.text_field :email
+  = f.password_field :password
+  = f.password_field :password_confirmation
+  
+  = f.submit "Sign up"

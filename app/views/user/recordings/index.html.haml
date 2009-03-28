@@ -1,0 +1,6 @@
+-@page_title = "#{user}s Recordings"
+
+-if logged_in?
+  %p= link_to 'New recording', new_recording_path
+
+= render :partial => "recordings/recording", :collection => @recordings, :locals => { :modifiable => true }

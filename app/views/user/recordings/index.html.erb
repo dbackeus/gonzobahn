@@ -1,7 +1,0 @@
-<h1><%= user %>s Recordings</h1>
-
-<% if logged_in? %>
-<p><%= link_to 'New recording', new_recording_path %></p>
-<% end %>
-
-<%= render :partial => "recordings/recording", :collection => @recordings, :locals => { :modifiable => true } %>

@@ -1,0 +1,3 @@
+%ul.autocomplete_list
+  -@tags.each do |t|
+    %li.autocomplete_item= "#{@words.join(',')}#{', ' if @words.length > 0}#{t}"

@@ -1,0 +1,3 @@
+-[:notice, :error].each do |message|
+  %div.flash_message{:id => message, :style => "display: #{flash[message].blank? ? 'none' : 'block'}"}
+    = h(flash[message]) if flash[message]

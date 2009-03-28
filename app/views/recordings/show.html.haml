@@ -1,0 +1,33 @@
+-@page_title = @recording.title
+
+#flash
+  = swf_object "recording_player.swf?recordingId=#{@recording.id}&host=#{SITE_HOST}", 320, 274
+
+%p
+  %strong Recorded:
+  = time_pretty(@recording.created_at) + "(" + time_ago(@recording.created_at) + ")"
+
+%p
+  %strong Length:
+  = @recording.length_pretty
+
+%p
+  =h @recording.description
+
+-if @recording.user == current_user
+  =link_to "Edit", edit_recording_path(@recording)
+
+-if @recording.comments.present?
+  %h1 Comments
+  = render @recording.comments
+
+%h1 Leave a Comment
+
+-if logged_in?
+  -form_for @recording.comments.build do |f|
+    = f.hidden_field :commentable_id
+    = f.hidden_field :commentable_type
+    = f.text_area :comment
+    = f.submit "Submit"
+-else
+  %p You must be logged in to add comments.

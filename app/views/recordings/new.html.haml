@@ -1,0 +1,15 @@
+-@page_title = "New Recording"
+
+:javascript
+  function onStreamRecorded( fileName, length )
+  {
+    $('recording_filename').value = fileName
+    $('recording_length').value = length
+  }
+
+#flash
+  = swf_object "dictaphone_recorder.swf?host=#{FMS_HOST}", 320, 274
+
+= render :partial => "form"
+
+= link_to "Back", recordings_path

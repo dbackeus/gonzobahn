@@ -1,0 +1,12 @@
+-form_for @recording do |f|
+  = f.error_messages
+
+  = f.hidden_field :filename
+  = f.hidden_field :length
+  
+  = f.text_field :title
+  = f.auto_completing_text_field :tag_list, :label => "Tags (comma separated)"
+  = f.text_area :description
+  = f.check_box :private, :label => "Make recording private"
+  
+  = f.submit "Save"

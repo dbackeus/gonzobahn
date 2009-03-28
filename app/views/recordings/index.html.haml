@@ -1,0 +1,6 @@
+-@page_title = "Recordings"
+
+-if logged_in?
+  %p= link_to 'Create recording', new_recording_path
+
+= render @recordings

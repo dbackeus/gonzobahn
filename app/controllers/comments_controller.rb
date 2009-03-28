@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = "Your comment was added"
     else
-      flash[:notice] = "Can't create comment without a comment"
+      flash[:error] = "Can't create comment without a comment"
     end
     redirect_to @comment.commentable
   end

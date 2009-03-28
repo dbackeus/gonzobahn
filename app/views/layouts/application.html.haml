@@ -1,0 +1,20 @@
+!!!
+%html{html_attrs('en')}
+  %head
+    %title= "GonzoBahn - #{@page_title}"
+    = javascript_include_tag :all
+    = stylesheet_link_tag "application"
+  %body
+    #site
+      #header
+        %h1 Loud Thinking
+        = render :partial => "layouts/user_info"
+        .clear
+      #menu
+        = render :partial => "layouts/menu"
+        .clear
+      #content
+        = render :partial => "layouts/flash_messages"
+        %h1= @page_title
+        = yield
+        .clear
