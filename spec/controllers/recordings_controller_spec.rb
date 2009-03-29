@@ -28,6 +28,21 @@ describe RecordingsController do
     it { should assign_to(:recording).with(@recording) }
   end
   
+  describe "handling GET /recordings/1/file" do
+    before(:each) do
+      @recording = Factory(:recording)
+      get :file, :id => @recording.id
+    end
+    
+    it { should redirect_to("http://#{SITE_HOST}/system/recordings/#{@recording.id}/#{@recording.filename}") }
+    
+    it "should increment number of views" do
+      @recording.views.should == 0
+      @recording.reload
+      @recording.views.should == 1
+    end
+  end
+  
   describe "handling GET /recordings/1 with private movie" do
   
     describe "with user of recording" do

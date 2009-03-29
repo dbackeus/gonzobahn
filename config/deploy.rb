@@ -13,6 +13,7 @@ set :deploy_via, :remote_cache
 set :git_shallow_clone, 1
 
 role :production, host
+role :db, host, :primary => true
 
 set :use_sudo, false
 default_run_options[:pty] = true
@@ -40,10 +41,10 @@ namespace :deploy do
     CMD
   end
 
-  desc "Run pre-symlink tasks" 
+  desc "Run after symlink tasks" 
   task :after_symlink do
     setup_config
-    #migrate
+    migrate
   end
   
   desc "Clear out old code trees. Only keep 5 latest releases around"

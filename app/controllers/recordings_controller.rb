@@ -20,7 +20,10 @@ class RecordingsController < ApplicationController
   # GET /recordings/1/file
   def file
     @recording = Recording.find(params[:id])
-    redirect_to "http://#{SITE_HOST}/system/recordings/#{@recording.id}/#{@recording.filename}" if allow_viewing?
+    if allow_viewing?
+      @recording.update_attribute(:views, @recording.views + 1)
+      redirect_to "http://#{SITE_HOST}/system/recordings/#{@recording.id}/#{@recording.filename}"
+    end
   end
   
   # GET /recordings

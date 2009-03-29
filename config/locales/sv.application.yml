@@ -43,6 +43,7 @@ sv:
       private: Gör inspelningen privat
     show:
       created: Skapad
+      views: Visningar
     flash:
       create: Inspelningen skapades.
       update: Inspelningen uppdaterades.

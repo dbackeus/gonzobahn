@@ -43,6 +43,7 @@ en:
       private: Make recording private
     show:
       created: Created
+      views: Views
     flash:
       create: Recording was successfully created.
       update: Recording was successfully updated.
