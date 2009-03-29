@@ -4,6 +4,8 @@
 - Daemon for Red5
 - Cronjob to clear out unused red5 streams
 - Staging environment
+- Proper mailing
+- New Relic
 
 .todo
 - Taggning
