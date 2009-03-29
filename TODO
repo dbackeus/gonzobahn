@@ -9,11 +9,14 @@
 .todo
 - Taggning
 - Timezone fix
-
-.nice
+- Video / Ljud-inlägg
 - Kudossystem
 - Feeds
 - Flash Embed
+- Gravatars på kommentarer och profil
+
+.nice
+- Telefon med Asterix + skype + Adhearsion?
 
 .refactor
 - Använd bara ""

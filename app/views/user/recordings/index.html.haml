@@ -3,4 +3,4 @@
 -if logged_in?
   %p= link_to title_for(Recording.new, "create"), new_recording_path
 
-= render :partial => "recordings/recording", :collection => @recordings, :locals => { :modifiable => true }
+= render :partial => "recordings/recording", :collection => @recordings, :locals => { :modifiable => user == current_user }
