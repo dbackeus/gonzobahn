@@ -52,6 +52,11 @@ en:
     recordings:
       index:
         title: "{{user}}s Recordings"
+  users:
+    flash:
+      create: Thanks for signing up! Please activate your account by clicking on the link in your activation mail.
+      update: The user was successfully updated.
+      activate: Signup complete! You are now logged in and ready to go...
   sessions:
     new:
       remember_me: Remember me on this computer

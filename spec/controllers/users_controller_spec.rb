@@ -19,7 +19,7 @@ describe UsersController do
       end
       
       it { should redirect_to(root_path) }
-      it { should set_the_flash.to(/thanks/i) }
+      it { should set_the_flash.to(translate("users.flash.create")) }
       
       it "should create user" do
         User.count.should == 1
@@ -44,6 +44,7 @@ describe UsersController do
         }
       end
       
+      it { should assign_to(:user).with_kind_of(User) }
       it { should_not set_the_flash }
       it { should render_template(:new) }
       
@@ -61,7 +62,7 @@ describe UsersController do
       User.authenticate('aaron', 'test').should be_nil
       get :activate, :activation_code => user.activation_code
       User.authenticate('aaron', 'test').should == user
-      flash[:notice].should_not be_nil
+      controller.should set_the_flash.to(translate("users.flash.activate"))
       response.should redirect_to(user_recordings_path(user))
     end
 

@@ -52,6 +52,11 @@ sv:
     recordings:
       index:
         title: "{{user}}s inspelningar"
+  users:
+    flash:
+      create: Tack för din registrering! Du kan nu aktivera ditt konto genom att klicka på länken i ditt aktiveringsmail.
+      update: Din användare uppdaterades.
+      activate: Registreringen är nu färdigställd! Du har loggats in och kan börja skapa dina inspelningar direkt.
   sessions:
     new:
       remember_me: Kom ihåg mig på den här datorn

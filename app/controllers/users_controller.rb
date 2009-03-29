@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @user.register! if @user.valid?
     if @user.errors.empty?
       redirect_to root_path
-      flash[:notice] = "Thanks for signing up! Please activate your account by clicking on the link in your activation mail."
+      flash[:notice] = t("users.flash.create")
     else
       render "new"
     end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @user = current_user
     
     if @user.update_attributes(params[:user])
-      flash[:notice] = "The user was updated successfully."
+      flash[:notice] = t("users.flash.update")
       redirect_to edit_user_path(@user)
     else
       render "edit"
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     self.current_user = params[:activation_code].blank? ? false : User.find_by_activation_code(params[:activation_code])
     if logged_in? && !current_user.active?
       current_user.activate!
-      flash[:notice] = "Signup complete! You are now logged in and ready to go..."
+      flash[:notice] = translate("users.flash.activate")
     end
     redirect_to user_recordings_path(current_user)
   end
