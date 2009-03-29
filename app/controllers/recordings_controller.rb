@@ -49,7 +49,7 @@ class RecordingsController < ApplicationController
     @recording = current_user.recordings.build(params[:recording])
 
     if @recording.save
-      flash[:notice] = 'Recording was successfully created.'
+      flash[:notice] = t("recordings.flash.create")
       redirect_to @recording
     else
       render "new"
@@ -61,7 +61,7 @@ class RecordingsController < ApplicationController
     @recording = current_user.recordings.find(params[:id])
 
     if @recording.update_attributes(params[:recording])
-      flash[:notice] = 'Recording was successfully updated.'
+      flash[:notice] = t("recordings.flash.update")
       redirect_to @recording
     else
       render "edit"
@@ -72,7 +72,7 @@ class RecordingsController < ApplicationController
   def destroy
     @recording = current_user.recordings.find(params[:id])
     @recording.destroy
-    flash[:notice] = "Recording was succefully deleted"
+    flash[:notice] = t("recordings.flash.destroy")
     
     redirect_to user_recordings_path(@recording.user)
   end
@@ -86,7 +86,7 @@ class RecordingsController < ApplicationController
     return true unless @recording.private?
     
     if @recording.user != current_user
-      access_denied("This recording is private and can only be seen by #{@recording.user}")
+      access_denied t("recordings.flash.private", :user => @recording.user)
       false
     else
       true

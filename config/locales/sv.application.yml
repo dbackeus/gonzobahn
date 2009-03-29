@@ -39,6 +39,11 @@ sv:
     form:
       tags: Taggar (separerade med komma)
       private: Gör inspelningen privat
+    flash:
+      create: Inspelningen skapades.
+      update: Inspelningen uppdaterades.
+      destroy: Inspelningen raderades.
+      private: "Inspelningen du försökte se är privat och kan bara ses av {{user}}"
   user:
     recordings:
       index:

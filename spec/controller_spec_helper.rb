@@ -18,6 +18,10 @@ module ControllerSpecHelper
     @current_user
   end
   
+  def translate(key)
+    controller.translate(key)
+  end
+  
   module ClassMethods
     def logged_in(&block)
       describe "logged in" do

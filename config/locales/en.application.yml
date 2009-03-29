@@ -39,6 +39,11 @@ en:
     form:
       tags: Tags (comma separated)
       private: Make recording private
+    flash:
+      create: Recording was successfully created.
+      update: Recording was successfully updated.
+      destroy: Recording was successfully deleted.
+      private: "This recording is private and can only be seen by {{user}}"
   user:
     recordings:
       index:
