@@ -53,3 +53,7 @@ sv:
   sessions:
     new:
       remember_me: Kom ihåg mig på den här datorn
+    flash:
+      create: Du är nu inloggad.
+      create_fail: Login misslyckades.
+      destroy: Du har nu loggat ut.

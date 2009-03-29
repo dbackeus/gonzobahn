@@ -24,7 +24,6 @@ en:
     flash:
       create: Your comment was added.
       create_fail: Can't create comment without a comment.
-  
   layouts:
     user_info:
       logged_in: "You are logged in as:"
@@ -54,3 +53,7 @@ en:
   sessions:
     new:
       remember_me: Remember me on this computer
+    flash:
+      create: Logged in successfully.
+      create_fail: Login failed.
+      destroy: You have been logged out.

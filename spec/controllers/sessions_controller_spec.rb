@@ -18,6 +18,7 @@ describe SessionsController do
   
     it { should redirect_to(user_recordings_path(@user)) }
     it { should set_session(:user_id) }
+    it { should set_the_flash.to(translate("sessions.flash.create")) }
   end
   
   describe "failed login" do
@@ -27,7 +28,7 @@ describe SessionsController do
   
     it { should respond_with(:success) }
     it { should render_template("new") }
-    it { should set_the_flash.to(/failed/i) }
+    it { should set_the_flash.to(translate("sessions.flash.create_fail")) }
     it { should_not set_session(:user_id) }
   end
   
@@ -37,7 +38,7 @@ describe SessionsController do
       get :destroy
     end
     
-    it { should set_the_flash.to(/logged out/i) }
+    it { should set_the_flash.to(translate("sessions.flash.destroy")) }
     it { should set_session(:user_id).to(nil) }
     it { should redirect_to(root_path) }
   end

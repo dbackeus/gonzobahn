@@ -12,10 +12,10 @@ class SessionsController < ApplicationController
         current_user.remember_me unless current_user.remember_token?
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      flash[:notice] = "Logged in successfully"
+      flash[:notice] = t("sessions.flash.create")
       redirect_to user_recordings_path(current_user)
     else
-      flash.now[:error] = "Login failed"
+      flash.now[:error] = t("sessions.flash.create_fail")
       render "new"
     end
   end
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
     reset_session
-    flash[:notice] = "You have been logged out."
+    flash[:notice] = t("sessions.flash.destroy")
     redirect_to root_path
   end
 end
