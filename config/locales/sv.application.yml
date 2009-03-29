@@ -20,8 +20,10 @@ sv:
   comments:
     comments: Kommentarer
     leave_comment: Lämna en kommentar
-    must_be_logged_in: Du måste vara inloggad för att lämna en kommentar
-  
+    must_be_logged_in: Du måste vara inloggad för att lämna en kommentar.
+    flash:
+      create: Din kommentar skapades.
+      create_fail: Kommentar kan inte skapas utan en text.
   layouts:
     user_info:
       logged_in: "Du är inloggad som:"
@@ -43,7 +45,7 @@ sv:
       create: Inspelningen skapades.
       update: Inspelningen uppdaterades.
       destroy: Inspelningen raderades.
-      private: "Inspelningen du försökte se är privat och kan bara ses av {{user}}"
+      private: "Inspelningen du försökte se är privat och kan bara ses av {{user}}."
   user:
     recordings:
       index:

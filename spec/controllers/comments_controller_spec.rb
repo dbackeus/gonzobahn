@@ -19,7 +19,7 @@ describe CommentsController do
         }
       end
     
-      it { should set_the_flash.to(/was added/i) }
+      it { should set_the_flash.to(translate("comments.flash.create")) }
       it { should redirect_to(recording_path(@commentable)) }
     
       it "should create the comment" do
@@ -42,7 +42,7 @@ describe CommentsController do
         }
       end
     
-      it { should set_the_flash.to(/without a comment/i) }
+      it { should set_the_flash.to(translate("comments.flash.create_fail")) }
       it { should redirect_to(recording_path(@commentable)) }
     
       it "should not create a comment" do

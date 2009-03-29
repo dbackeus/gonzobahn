@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
     if @comment.save
-      flash[:notice] = "Your comment was added"
+      flash[:notice] = translate("comments.flash.create")
     else
-      flash[:error] = "Can't create comment without a comment"
+      flash[:error] = translate("comments.flash.create_fail")
     end
     redirect_to @comment.commentable
   end

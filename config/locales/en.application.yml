@@ -21,6 +21,9 @@ en:
     comments: Comments
     leave_comment: Leave a Comment
     must_be_logged_in: You must be logged in to add comments.
+    flash:
+      create: Your comment was added.
+      create_fail: Can't create comment without a comment.
   
   layouts:
     user_info:
@@ -43,7 +46,7 @@ en:
       create: Recording was successfully created.
       update: Recording was successfully updated.
       destroy: Recording was successfully deleted.
-      private: "This recording is private and can only be seen by {{user}}"
+      private: "This recording is private and can only be seen by {{user}}."
   user:
     recordings:
       index:
