@@ -8,6 +8,7 @@ Rails::Initializer.run do |config|
   
   require 'ftools'
   
+  config.gem "newrelic_rpm"
   config.gem "haml"
   config.gem "RedCloth", :lib => "redcloth"
   config.gem "thoughtbot-pacecar", :lib => "pacecar", :source => "http://gems.github.com"
