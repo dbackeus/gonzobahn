@@ -41,6 +41,8 @@ sv:
     form:
       tags: Taggar (separerade med komma)
       private: Gör inspelningen privat
+    show:
+      created: Skapad
     flash:
       create: Inspelningen skapades.
       update: Inspelningen uppdaterades.

@@ -4,11 +4,11 @@
   = swf_object "recording_player.swf?recordingId=#{@recording.id}&host=#{SITE_HOST}", 320, 274
 
 %p
-  %strong Recorded:
+  %strong= t(".created")
   = time_pretty(@recording.created_at) + " (" + time_ago(@recording.created_at) + ")"
 
 %p
-  %strong Length:
+  %strong= Recording.human_attribute_name("length")
   = @recording.length_pretty
 
 %p
