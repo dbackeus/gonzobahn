@@ -33,6 +33,12 @@ label {
   font-weight: bold;
 }
 
+/* === Specified Layout === */
+
+.left {
+  float: left;
+}
+
 #content h1 {
   font-family: "Gill Sans", "Trebuchet MS",Helvetica, Arial, sans-serif;
   font-size: 24px;
@@ -91,6 +97,10 @@ div.comment {
   background: #EEE;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+div.comment div {
+  margin-right: 10px;
 }
 
 div.comment cite {

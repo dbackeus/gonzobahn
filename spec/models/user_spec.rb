@@ -10,10 +10,18 @@ describe User do
   it { should have_many(:comments) }
   
   before(:each) do
-    @quentin = Factory(:user, :login => "quentin", :password => "test", :password_confirmation => "test")
+    @quentin = Factory(:user,
+      :login => "quentin", 
+      :password => "test", 
+      :password_confirmation => "test")
     @quentin.activate!
   end
-
+  
+  it "should have a gravatar avatar" do
+    md5_email = Digest::MD5.hexdigest(@quentin.email)
+    @quentin.avatar_url.should == "http://www.gravatar.com/avatar/#{md5_email}.jpg?d=#{SITE_HOST}/images/missing_avatar.gif"
+  end
+  
   describe 'being created' do
     before do
       @user = nil
