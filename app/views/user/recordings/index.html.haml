@@ -1,4 +1,5 @@
 -@page_title = t(".title", :user => user.to_s)
+-@feed_url = user_recordings_url(user, :format => :atom)
 
 -if logged_in?
   %p= link_to title_for(Recording.new, "create"), new_recording_path

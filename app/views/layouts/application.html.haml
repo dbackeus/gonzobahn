@@ -4,6 +4,8 @@
     %title= "#{t('site_name')} - #{@page_title}"
     = javascript_include_tag :all
     = stylesheet_link_tag "application"
+    - if @feed_url
+      %link{:rel => "alternate", :type => "application/rss+xml", :title => @page_title, :href => @feed_url}    
   %body
     #site
       #header
