@@ -14,7 +14,7 @@
   = @recording.length_pretty
 
 %p
-  =h @recording.description
+  = RedCloth.new(@recording.description).to_html
 
 -if @recording.user == current_user
   =link_to t("edit"), edit_recording_path(@recording)
