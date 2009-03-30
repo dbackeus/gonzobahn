@@ -1,10 +1,10 @@
 -div_for comment do
-  .left
+  .avatar
     = image_tag comment.user.avatar_url
-  .left
-    %cite
-      = time_ago(comment.created_at).capitalize
-      =t "by"
-      = link_to comment.user, user_recordings_path(comment.user)
+  %cite
+    = time_ago(comment.created_at).capitalize
+    =t "by"
+    = link_to comment.user, user_recordings_path(comment.user)
+  .message
     = RedCloth.new(comment.comment).to_html
   .clear

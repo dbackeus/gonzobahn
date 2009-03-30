@@ -103,6 +103,17 @@ div.comment div {
   margin-right: 10px;
 }
 
+div.comment div.avatar {
+  float: left;
+  width: 80px;
+  height: 80px;
+}
+
+div.comment div.message {
+  width: 470px;
+  float: left;
+}
+
 div.comment cite {
   color: gray;
 }
