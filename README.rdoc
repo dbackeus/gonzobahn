@@ -13,13 +13,23 @@ Here's a step by step guide to getting started with your development environment
 
 === Install gems
 
-  rake gems:install
+  sudo rake gems:install
 
 === Setup Red5
 
 Follow installation instructions on http://jira.red5.org/confluence/display/downloads/Red5+v0.8.0+Release+Candidate+2+02.03.2009
 
-When Red5 is up and running. Browse to http://localhost:5080/installer and install the oflaDemo application.
+When Red5 is up and running. Browse to http://localhost:5080/installer and install the oflaDemo application (you only need to do this once).
+
+=== Setup FFMPEG
+
+Gonzobahn expects there to be a ffmpeg binary ready to run from a pathed dir on your system.
+
+If you're on Mac OS you can use the precompiled ffmpeg binary found in vendor/bin/leopard/ffmpeg.
+
+Example (make sure you have ~/bin in your path first)
+
+  cp vendor/bin/leopard/ffmpeg ~/bin/
 
 === Configure directories
 
