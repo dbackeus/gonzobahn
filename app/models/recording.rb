@@ -12,7 +12,7 @@ class Recording < ActiveRecord::Base
   has_many :comments, :as => :commentable
   
   after_create :move_file_to_public_dir
-  after_create :generate_thumbnail
+  after_create :generate_thumbnail, :if => :has_video?
   
   after_destroy :delete_files
   
@@ -28,7 +28,7 @@ class Recording < ActiveRecord::Base
   end
   
   def thumbnail_path
-    "/system/recordings/#{id}/image_original.jpg"
+    has_video? ? "/system/recordings/#{id}/image_original.jpg" : "/images/audio_recording.gif"
   end
   
   def length_pretty

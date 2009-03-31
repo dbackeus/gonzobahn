@@ -1,10 +1,12 @@
 -@page_title = title_for(@recording, "new")
 
 :javascript
-  function onStreamRecorded( fileName, length )
+  function onStreamRecorded( stream )
   {
-    $('recording_filename').value = fileName
-    $('recording_length').value = length
+    $('recording_filename').value = stream.fileName
+    $('recording_length').value = stream.length
+    $('recording_has_audio').value = stream.hasAudio
+    $('recording_has_video').value = stream.hasVideo
   }
 
 #flash

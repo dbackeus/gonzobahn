@@ -20,6 +20,18 @@ describe Recording do
     Factory(:recording).should be_valid
   end
   
+  describe "#thumbnail_path" do
+    it "should use generic audio image if there is no video content" do
+      recording = Factory(:recording, :has_video => false)
+      recording.thumbnail_path.should == "/images/audio_recording.gif"
+    end
+    
+    it "should use generated thumbnail if there is video content" do
+      recording = Factory(:recording, :has_video => true)
+      recording.thumbnail_path.should == "/system/recordings/#{recording.id}/image_original.jpg"
+    end
+  end
+  
   it "should return time in 00:00 format" do
     recording = Factory(:recording)
     

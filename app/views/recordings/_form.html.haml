@@ -3,6 +3,8 @@
 
   = f.hidden_field :filename
   = f.hidden_field :length
+  = f.hidden_field :has_audio
+  = f.hidden_field :has_video
   
   = f.text_field :title
   = f.auto_completing_text_field :tag_list, :label => t(".tags")
