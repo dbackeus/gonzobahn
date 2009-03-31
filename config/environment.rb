@@ -34,6 +34,7 @@ Rails::Initializer.run do |config|
   # Obervers
   config.active_record.observers = :user_observer
 
-  # Make Active Record use UTC-base instead of local time
-  #config.active_record.default_timezone = :utc
+  # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+  # Run "rake -D time" for a list of tasks for finding time zone names.
+  config.time_zone = "UTC"
 end
