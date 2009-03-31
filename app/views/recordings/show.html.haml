@@ -1,7 +1,7 @@
 -@page_title = @recording.title
 
 #flash
-  = swf_object "recording_player.swf?recordingId=#{@recording.id}&host=#{SITE_HOST}", 320, 274
+  = swf_object "recording_video_player.swf?recordingId=#{@recording.id}&host=#{SITE_HOST}", 320, 290
 
 %p
   %strong= t(".created")
