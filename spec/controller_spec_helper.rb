@@ -33,6 +33,16 @@ module ControllerSpecHelper
       end
     end
     
+    def logged_in_as(login, &block)
+      describe "logged in as #{login}" do
+        before(:each) do
+          log_in(login)
+        end
+        
+        block.bind(self).call
+      end
+    end
+    
     def logged_out(&block)
       describe "logged out" do
         before(:each) do

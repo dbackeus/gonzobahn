@@ -18,6 +18,16 @@ describe RecordingsController do
     it { should assign_to(:recordings).with(Recording.published.by_created_at(:desc)) }
   end
   
+  describe "handling GET /recordings.atom" do
+    before(:each) do
+      3.downto(1) { |i| Factory(:recording, :created_at => i.months.ago) }
+      Factory(:recording, :private => true)
+      get :index, :format => "atom"
+    end
+    
+    it { should respond_with_content_type(:atom) }
+  end
+  
   describe "handling GET /recordings/1" do
     before(:each) do
       @recording = Factory(:recording)
