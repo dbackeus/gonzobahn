@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: newrelic_rpm
 version: !ruby/object:Gem::Version 
-  version: 2.8.7
+  version: 2.8.8
 platform: ruby
 authors: 
 - Bill Kayser
@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-03-23 00:00:00 +01:00
+date: 2009-03-31 00:00:00 +02:00
 default_executable: newrelic_cmd
 dependencies: []
 
