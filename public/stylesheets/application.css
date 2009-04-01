@@ -35,31 +35,6 @@ label {
 
 /* === Specified Layout === */
 
-.left {
-  float: left;
-}
-
-#content h1 {
-  font-family: "Gill Sans", "Trebuchet MS",Helvetica, Arial, sans-serif;
-  font-size: 24px;
-  padding-bottom: 0;
-  line-height: 1.2;
-}
-
-strong {
-	font-weight: bold;
-}
-
-div#site {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	top: 10px;
-	width: 700px;
-	background: white;
-	padding: 20px;
-}
-
 div#header {
   border-bottom: 4px solid #E0E0E0;
 }
@@ -82,6 +57,32 @@ div#menu li {
 }
 div#menu li.first {
   border-left: 1px solid #EEE;
+}
+
+/*#content {
+  border-bottom: 4px solid #E0E0E0;
+  margin-bottom: 15px;
+}*/
+
+#content h1 {
+  font-family: "Gill Sans", "Trebuchet MS",Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  padding-bottom: 0;
+  line-height: 1.2;
+}
+
+strong {
+	font-weight: bold;
+}
+
+div#site {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	top: 10px;
+	width: 700px;
+	background: white;
+	padding: 20px;
 }
 
 div.recording {
@@ -116,6 +117,18 @@ div.comment div.message {
 
 div.comment cite {
   color: gray;
+}
+
+#footer a:hover {
+  background-color: inherit;
+}
+
+#footer * {
+  float: left;
+}
+
+#footer p {
+  margin-top: 32px;
 }
 
 /* === Flash Messages === */
@@ -185,4 +198,8 @@ pre {
 
 .clear {
   clear:both;
+}
+
+.left {
+  float: left;
 }
