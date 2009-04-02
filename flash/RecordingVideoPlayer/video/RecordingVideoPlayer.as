@@ -2,7 +2,11 @@
 
 class video.RecordingVideoPlayer extends AbstractVideoPlayer
 {
+  var loader:MovieClip
 	var megaphone:MovieClip
+	
+	var url:String
+  var hasBegunLoading:Boolean
 	
 	//-------------------------------------------------------------------
 	//	CONSTRUCTOR
@@ -13,6 +17,17 @@ class video.RecordingVideoPlayer extends AbstractVideoPlayer
 	  super()
 	  
 	  megaphone._alpha = 0
+		loader._alpha = 0
+	  
+	  if( isInternal )
+	  {
+	    image._visible = false
+	  }
+	  else
+	  {
+      image.imageHolder.loadMovie( _root.imageUrl )
+      image.onRelease = Delegate.create( this, playIt )
+	  }
 	}
 	
 	function init()
@@ -27,8 +42,40 @@ class video.RecordingVideoPlayer extends AbstractVideoPlayer
 		
 		super.init()
 		
-		//player.autoRewind = false
+		player.bufferingBar = loader
 		player.autoPlay = true
+	}
+	
+	//-------------------------------------------------------------------
+	// FUNCTIONS
+	//-------------------------------------------------------------------
+	
+	function playIt()
+	{
+	  if( hasBegunLoading )
+	  {
+  	  player.play()	    
+	  }
+	  else
+	  {
+	    loadVideo()
+	  }
+	}
+	
+	function setVideoUrl( url )
+	{
+    this.url = url
+	  if( isInternal )
+	  {
+	    loadVideo()
+	  }
+	}
+	
+	function loadVideo()
+	{
+	  super.loadVideo( this.url )
+	  hasBegunLoading = true
+	  loader._alpha = 100
 	}
 	
 	//-------------------------------------------------------------------
@@ -43,5 +90,14 @@ class video.RecordingVideoPlayer extends AbstractVideoPlayer
 		{
 			megaphone.fadeUp()
 		}
+	}
+	
+	//-------------------------------------------------------------------
+	// PROPERTIES
+	//-------------------------------------------------------------------
+	
+	function get isInternal()
+	{
+	  return _root.internal
 	}
 }

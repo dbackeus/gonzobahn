@@ -1,3 +1,7 @@
+Just nu
+
+- Fixa start image i player för att slippa loading direkt i bloggar
+
 === Diktafonen
 
 .deploy
@@ -15,6 +19,7 @@
 - Omskalning av tumnaglar
 - Ikon för GleSYS
 - Användarhemsida (dashboard style?)
+- OpenID
 
 .nice
 - Telefon med Asterix + skype + Adhearsion?
