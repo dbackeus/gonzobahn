@@ -33,7 +33,7 @@ label {
   font-weight: bold;
 }
 
-/* === Specified Layout === */
+/* === Header === */
 
 div#header {
   border-bottom: 4px solid #E0E0E0;
@@ -58,6 +58,8 @@ div#menu li {
 div#menu li.first {
   border-left: 1px solid #EEE;
 }
+
+/* === All Content === */
 
 /*#content {
   border-bottom: 4px solid #E0E0E0;
@@ -90,6 +92,11 @@ div.recording {
 	padding: 10px;
 }
 
+#embed_code {
+  width: 257px;
+  font-size: 9px;
+}
+
 #new_comment textarea {
   height: 100px;
 }
@@ -118,6 +125,8 @@ div.comment div.message {
 div.comment cite {
   color: gray;
 }
+
+/* === Footer === */
 
 #footer a:hover {
   background-color: inherit;

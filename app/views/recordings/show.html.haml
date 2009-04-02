@@ -1,7 +1,10 @@
 -@page_title = @recording.title
 
 #flash
-  = swf_object "recording_video_player.swf?recordingId=#{@recording.id}&host=#{SITE_HOST}&internal=true", 320, 290
+  = swf_object recording_path(@recording, :format => "swf", :internal => "true"), 320, 290
+%p
+  %strong= t(".embed")
+  = text_field_tag "embed_code", h(swf_object(recording_url(@recording, :format => "swf"), 320, 290)), :onclick => "$('embed_code').select()", :readonly => true
 
 %p
   %strong= t(".created")
@@ -9,9 +12,6 @@
 %p
   %strong= t(".views")
   = @recording.views
-%p
-  %strong= Recording.human_attribute_name("length")
-  = @recording.length_pretty
 
 %p
   = RedCloth.new(@recording.description).to_html

@@ -38,6 +38,22 @@ describe RecordingsController do
     it { should assign_to(:recording).with(@recording) }
   end
   
+  describe "handling GET /recordings/1.swf" do
+    before(:each) do
+      @recording = Factory(:recording)
+    end
+    
+    it "should redirect to swf with internal=false" do
+      get :show, :format => "swf", :id => @recording.id
+      should redirect_to("http://#{SITE_HOST}/flash/recording_video_player.swf?host=#{SITE_HOST}&recordingId=#{@recording.id}&internal=false")
+    end
+    
+    it "should redirect to swf with internal=true" do
+      get :show, :format => "swf", :id => @recording.id, :internal => "true"
+      should redirect_to("http://#{SITE_HOST}/flash/recording_video_player.swf?host=#{SITE_HOST}&recordingId=#{@recording.id}&internal=true")
+    end
+  end
+  
   describe "handling GET /recordings/1/file" do
     before(:each) do
       @recording = Factory(:recording)

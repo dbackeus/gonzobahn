@@ -1,6 +1,6 @@
 Just nu
 
-- Fixa start image i player för att slippa loading direkt i bloggar
+- Ibland beter sig flash player som internal fast den är internal false?
 
 === Diktafonen
 
@@ -15,7 +15,6 @@ Just nu
 - Kudossystem
 - Better recorder
 - Proper video / sound player
-- Flash Embed
 - Omskalning av tumnaglar
 - Ikon för GleSYS
 - Användarhemsida (dashboard style?)

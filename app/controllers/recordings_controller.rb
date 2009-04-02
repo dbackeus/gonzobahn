@@ -34,7 +34,11 @@ class RecordingsController < ApplicationController
   # GET /recordings/1
   def show
     @recording = Recording.find(params[:id])
-    allow_viewing?
+    return unless allow_viewing?
+    respond_to do |format|
+      format.html # show.html
+      format.swf { redirect_to recording_swf_url }
+    end
   end
 
   # GET /recordings/new
@@ -94,5 +98,10 @@ class RecordingsController < ApplicationController
     else
       true
     end
+  end
+  
+  def recording_swf_url
+    internal = params[:internal] == "true"
+    "http://#{SITE_HOST}/flash/recording_video_player.swf?host=#{SITE_HOST}&recordingId=#{@recording.id}&internal=#{internal}"
   end
 end

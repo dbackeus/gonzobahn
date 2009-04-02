@@ -45,6 +45,7 @@ sv:
     show:
       created: Skapad
       views: Visningar
+      embed: Bädda in
     flash:
       create: Inspelningen skapades.
       update: Inspelningen uppdaterades.

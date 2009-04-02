@@ -1,6 +1,5 @@
 module FlashHelper
   def swf_object(file, width, height)
-    file = "/flash/#{file}"
     object = ""
     object << "<object width='#{width}' height='#{height}'>"
     object << "<param name='movie' value='#{file}'></param>"

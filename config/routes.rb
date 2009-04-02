@@ -16,4 +16,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :recordings, :collection => { :auto_complete_for_recording_tag_list => :post }, :member => { :file => :get }
   
   map.root :controller => "home"
+  
 end
