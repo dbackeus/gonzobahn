@@ -196,13 +196,10 @@ class video.AbstractVideoPlayer extends ExtendedMovieClip
 		if( isBuffering || isPlaying || isPaused || isSeeking )
 		{
 			image.fadeDown()
-			image.enabled = false
 		}
 		else
 		{
 			image.fadeUp()
-			image.enabled = true
-			image._alpha = 100
 		}
 		
 		if( isStopped )
@@ -210,6 +207,11 @@ class video.AbstractVideoPlayer extends ExtendedMovieClip
 			// Reset timeline when changing movies etc
 			updateElapsedTime()
 		}
+	}
+	
+	function onEnterFrame()
+	{
+	  image._visible = image._alpha > 0
 	}
 	
 	function onPlaybackComplete( e:Object )

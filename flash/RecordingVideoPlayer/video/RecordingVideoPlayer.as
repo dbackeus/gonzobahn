@@ -28,6 +28,7 @@ class video.RecordingVideoPlayer extends AbstractVideoPlayer
 	  {
       image.imageHolder.loadMovie( _root.imageUrl )
       image.onRelease = Delegate.create( this, playIt )
+      megaphone.onRelease = Delegate.create( this, gotoWebPage )
 	  }
 	}
 	
@@ -63,6 +64,12 @@ class video.RecordingVideoPlayer extends AbstractVideoPlayer
 	  }
 	}
 	
+	function gotoWebPage()
+	{
+	  player.stop()
+	  getURL(_root.recordingUrl)
+	}
+	
 	function setVideoUrl( url )
 	{
     this.url = url
@@ -96,7 +103,7 @@ class video.RecordingVideoPlayer extends AbstractVideoPlayer
 	function shrink()
 	{
 	  super.shrink()
-	  Stage["displayState"] = "normal";
+	  Stage["displayState"] = "normal"
 	}
 	
 	//-------------------------------------------------------------------
