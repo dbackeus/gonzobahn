@@ -1,4 +1,5 @@
 ﻿import video.*
+import flash.geom.Rectangle;
 
 class video.RecordingVideoPlayer extends AbstractVideoPlayer
 {
@@ -76,6 +77,26 @@ class video.RecordingVideoPlayer extends AbstractVideoPlayer
 	  super.loadVideo( this.url )
 	  hasBegunLoading = true
 	  loader._alpha = 100
+	}
+	
+	function enlarge()
+	{
+	  super.enlarge()
+	  
+	  var screenRectangle:Rectangle = new Rectangle()
+    screenRectangle.x = 0
+    screenRectangle.y = 0
+    screenRectangle.width=player._width
+    screenRectangle.height=player._height
+    
+    Stage["fullScreenSourceRect"] = screenRectangle
+	  Stage["displayState"] = "fullScreen";
+	}
+	
+	function shrink()
+	{
+	  super.shrink()
+	  Stage["displayState"] = "normal";
 	}
 	
 	//-------------------------------------------------------------------
