@@ -89,7 +89,14 @@ div#site {
 
 div.recording {
 	float:left;
-	padding: 10px;
+	padding: 10px 18px 10px 0;
+}
+
+div.recording img {
+  border: 1px solid white;
+}
+div.recording img:hover {
+  border: 1px solid black;
 }
 
 #embed_code {

@@ -1,7 +1,7 @@
 -modifiable ||= false
 
 .recording
-  = image_tag recording.thumbnail_path, :style => "width:120px; height:90px;"
+  = link_to image_tag(recording.thumbnail_path, :style => "width:120px; height:90px;"), recording
   %p= link_to truncate(recording.title, :length => 18), recording, :title => recording.title
   -if modifiable
     %p
