@@ -12,6 +12,7 @@ Rails::Initializer.run do |config|
   config.gem "haml"
   config.gem "RedCloth", :lib => "redcloth"
   config.gem "thoughtbot-pacecar", :lib => "pacecar", :source => "http://gems.github.com"
+  config.gem "ruby-openid", :lib => 'openid'
   
   unless RAILS_ENV == "production"
     config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
