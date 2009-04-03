@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   
-  map.resources :users
+  map.resources :users, :collection => { :new_with_open_id => :post }
   map.resource :session
   map.resource :comments, :only => :create
 

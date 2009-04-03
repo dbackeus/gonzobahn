@@ -5,12 +5,19 @@
     = label_tag 'login', User.human_attribute_name('login')
     %br
     = text_field_tag 'login'
-  
+
   %p
     = label_tag 'password', User.human_attribute_name('password')
     %br
     = password_field_tag 'password'
+  
+  %p= t(".or_use")
     
+  %p
+    =label_tag "openid_identifier", "OpenID"
+    %br
+    = text_field_tag "openid_identifier"
+  
   %p
     = label_tag 'remember_me', t(".remember_me")
     = check_box_tag 'remember_me'

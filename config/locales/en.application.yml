@@ -56,14 +56,24 @@ en:
       index:
         title: "{{user}}s Recordings"
   users:
+    new_with_open_id:
+      title: Complete registration
+      text: Submit your email and desired username to complete the registration.
+    new:
+      open_id_title: Register using OpenID
     flash:
       create: Thanks for signing up! Please activate your account by clicking on the link in your activation mail.
       update: The user was successfully updated.
       activate: Signup complete! You are now logged in and ready to go...
+      open_id: Your OpenID provider has been assigned to your account.
   sessions:
     new:
+      or_use: "Or use:"
       remember_me: Remember me on this computer
     flash:
       create: Logged in successfully.
-      create_fail: Login failed.
+      create_fail: Log in failed.
+      user_not_found: Log in failed. Did you enter your username correctly?
+      open_id_user_not_found: "Sorry, no user by that identity URL exists ({{identity_url}})."
+      activate_user: You need to activate your account by clicking the link in the registration email.
       destroy: You have been logged out.

@@ -4,7 +4,7 @@ Just nu
 
 === Diktafonen
 
-.deploy
+.production
 - Daemon for Red5
 - Cronjob to clear out unused red5 streams
 - Staging environment
@@ -16,9 +16,8 @@ Just nu
 - Better recorder
 - Proper video / sound player
 - Omskalning av tumnaglar
-- Ikon för GleSYS
 - Användarhemsida (dashboard style?)
-- OpenID
+- OpenID på redan betintliga användare
 
 .nice
 - Telefon med Asterix + skype + Adhearsion?
@@ -32,3 +31,4 @@ Just nu
 
 .test
 - recording/1/file
+- All the open id stuff

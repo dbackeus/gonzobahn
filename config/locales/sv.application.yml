@@ -56,14 +56,24 @@ sv:
       index:
         title: "{{user}}s inspelningar"
   users:
+    new:
+      open_id_title: Registrera med OpenID
+    new_with_open_id:
+      title: Slutför registrering
+      text: Skriv in din email och ditt önskade användarnamn för att slutföra registreringen.
     flash:
       create: Tack för din registrering! Du kan nu aktivera ditt konto genom att klicka på länken i ditt aktiveringsmail.
       update: Din användare uppdaterades.
       activate: Registreringen är nu färdigställd! Du har loggats in och kan börja skapa dina inspelningar direkt.
+      open_id: Din OpenID leverantör är nu knuten till ditt konto.
   sessions:
     new:
+      or_use: "Eller använd:"
       remember_me: Kom ihåg mig på den här datorn
     flash:
       create: Du är nu inloggad.
-      create_fail: Login misslyckades.
+      create_fail: Inloggningen misslyckades.
+      user_not_found: Inloggningen misslyckades. Skrev du in ditt användarnamn korrekt?
+      open_id_user_not_found: "Ingen användare hittades med denna OpenID leverantör ({{identity_url}})."
+      activate_user: Du måste aktivera ditt konto genom att klicka på länken i ditt registreringsmail.
       destroy: Du har nu loggat ut.

@@ -1,0 +1,14 @@
+-@page_title = t(".title")
+
+%p
+  = t(".text")
+
+- form_for @user do |f|
+  = f.error_messages
+
+  = f.hidden_field :identity_url
+
+  = f.text_field :login
+  = f.text_field :email
+  
+  = f.submit t("submit")

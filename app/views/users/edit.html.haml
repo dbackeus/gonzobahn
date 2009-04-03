@@ -2,8 +2,9 @@
 
 - form_for @user do |f|
   = f.error_messages
-
-  = f.password_field :password
-  = f.password_field :password_confirmation
+  
+  - unless @user.open_id?
+    = f.password_field :password
+    = f.password_field :password_confirmation
   
   = f.submit t("save")

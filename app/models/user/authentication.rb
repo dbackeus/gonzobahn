@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  before_save :encrypt_password
+  before_save :encrypt_password, :unless => :open_id?
   
   def self.find_by_login(login)
     User.first :conditions => ["login like ?", login]
@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   def self.authenticate(login, password)
     u = find_in_state :first, :active, :conditions => {:login => login} # need to get the salt
     u && u.authenticated?(password) ? u : nil
+  end
+  
+  def self.authenticate_with_open_id(identity_url)
+    find_in_state :first, :active, :conditions => {:identity_url => identity_url}
   end
 
   # Encrypts some data with the salt.

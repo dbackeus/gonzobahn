@@ -27,10 +27,26 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.register! if @user.valid?
     if @user.errors.empty?
-      redirect_to root_path
       flash[:notice] = t("users.flash.create")
+      redirect_to root_path
     else
-      render "new"
+      if @user.identity_url.present?
+        render "new_with_open_id"
+      else
+        render "new"
+      end
+    end
+  end
+  
+  def new_with_open_id
+    authenticate_with_open_id nil, :required => [:nickname, :email] do |result, identity_url, registration|
+      if result.successful?
+        @user = User.new(:identity_url => identity_url, :login => registration["nickname"], :email => registration["email"])
+        flash.now[:notice] = t("users.flash.open_id")
+      else
+        flash[:error] = result.message
+        redirect_to new_user_path
+      end
     end
   end
   
