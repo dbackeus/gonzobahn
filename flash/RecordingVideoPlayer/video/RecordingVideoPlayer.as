@@ -26,6 +26,7 @@ class video.RecordingVideoPlayer extends AbstractVideoPlayer
 	  }
 	  else
 	  {
+	    onEnterFrame = refreshImageVisibility
       image.imageHolder.loadMovie( _root.imageUrl )
       image.onRelease = Delegate.create( this, playIt )
       megaphone.onRelease = Delegate.create( this, gotoWebPage )
@@ -51,6 +52,11 @@ class video.RecordingVideoPlayer extends AbstractVideoPlayer
 	//-------------------------------------------------------------------
 	// FUNCTIONS
 	//-------------------------------------------------------------------
+	
+	function refreshImageVisibility()
+	{
+	  image._visible = image._alpha > 0
+	}
 	
 	function playIt()
 	{

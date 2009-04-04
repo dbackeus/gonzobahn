@@ -209,11 +209,6 @@ class video.AbstractVideoPlayer extends ExtendedMovieClip
 		}
 	}
 	
-	function onEnterFrame()
-	{
-	  image._visible = image._alpha > 0
-	}
-	
 	function onPlaybackComplete( e:Object )
 	{
 		//myTrace( "onPlaybackComplete()" )
