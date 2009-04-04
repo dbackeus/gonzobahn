@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
         else
           user = User.find_by_identity_url(identity_url)
           if user.nil?
-            failed_login t("session.flash.open_id_user_not_found", :identity_url => identity_url)
+            failed_login t("sessions.flash.open_id_user_not_found", :identity_url => identity_url)
           elsif !user.active?
             failed_login t("sessions.flash.activate_user")
           else

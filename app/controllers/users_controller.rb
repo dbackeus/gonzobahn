@@ -11,7 +11,20 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
+  
+  # POST /users/new_with_open_id
+  def new_with_open_id
+    authenticate_with_open_id params[:openid_identifier], :required => [:nickname, :email] do |result, identity_url, registration|
+      if result.successful?
+        @user = User.new(:identity_url => identity_url, :login => registration["nickname"], :email => registration["email"])
+        flash.now[:notice] = t("users.flash.open_id")
+      else
+        flash[:error] = result.message
+        redirect_to new_user_path
+      end
+    end
+  end
+  
   # GET /users/1/edit
   def edit
     @user = current_user
@@ -20,10 +33,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     cookies.delete :auth_token
-    # protects against session fixation attacks, wreaks havoc with 
-    # request forgery protection.
-    # uncomment at your own risk
-    # reset_session
+    
     @user = User.new(params[:user])
     @user.register! if @user.valid?
     if @user.errors.empty?
@@ -34,18 +44,6 @@ class UsersController < ApplicationController
         render "new_with_open_id"
       else
         render "new"
-      end
-    end
-  end
-  
-  def new_with_open_id
-    authenticate_with_open_id nil, :required => [:nickname, :email] do |result, identity_url, registration|
-      if result.successful?
-        @user = User.new(:identity_url => identity_url, :login => registration["nickname"], :email => registration["email"])
-        flash.now[:notice] = t("users.flash.open_id")
-      else
-        flash[:error] = result.message
-        redirect_to new_user_path
       end
     end
   end
