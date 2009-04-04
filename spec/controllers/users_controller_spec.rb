@@ -15,6 +15,63 @@ describe UsersController do
     it { should respond_with(:success) }
   end
   
+  logged_in do
+    
+    describe "GET edit" do
+      before(:each) do
+        get :edit, :id => current_user.to_param
+      end
+      
+      it { should respond_with(:success) }
+    end
+    
+    describe "PUT update using openid" do
+      
+      it "should authenticate through openid" do
+        @controller.expects(:authenticate_with_open_id)
+        lambda {
+          put :update, :id => current_user.id, :openid_identifier => "user.openidprovider.com"
+        }.should raise_error(ActionView::MissingTemplate) # error check added to avoid test crash
+      end
+      
+      describe "with successful authentication" do
+        before(:each) do
+          ActionController::Base.class_eval do
+            private
+            def begin_open_id_authentication(identity_url, options = {})
+              yield OpenIdAuthentication::Result.new(:successful), identity_url
+            end
+          end
+          put :update, :id => current_user.id, :openid_identifier => "user.openidprovider.com"
+        end
+
+        it { should redirect_to(edit_user_path(current_user)) }
+        it { should set_the_flash.to(translate("users.flash.update")) }
+
+        it "should assign the new identity_url to the user" do
+          assigns(:user).identity_url.should == "user.openidprovider.com"
+        end
+      end
+      
+      describe "with failed authentication" do
+        before(:each) do
+          ActionController::Base.class_eval do
+            private
+            def begin_open_id_authentication(identity_url, options = {})
+              yield OpenIdAuthentication::Result.new(:failed), identity_url
+            end
+          end
+          put :update, :id => current_user.id, :openid_identifier => "user.openidprovider.com"
+        end
+        
+        it { should set_the_flash }
+        it { should render_template("edit") }
+      end
+      
+    end
+    
+  end
+  
   describe "POST new_with_open_id" do
     
     it "should authenticate with simple registration extension request" do

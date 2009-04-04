@@ -56,11 +56,14 @@ en:
       index:
         title: "{{user}}s Recordings"
   users:
+    new:
+      open_id_title: Register using OpenID
     new_with_open_id:
       title: Complete registration
       text: Submit your email and desired username to complete the registration.
-    new:
-      open_id_title: Register using OpenID
+    edit:
+      add_open_id: Assign an OpenID provider
+      change_open_id: Change OpenID provider
     flash:
       create: Thanks for signing up! Please activate your account by clicking on the link in your activation mail.
       update: The user was successfully updated.

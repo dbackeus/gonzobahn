@@ -52,11 +52,24 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     
-    if @user.update_attributes(params[:user])
-      flash[:notice] = t("users.flash.update")
-      redirect_to edit_user_path(@user)
+    if using_open_id?
+      authenticate_with_open_id do |result, identity_url|
+        if result.successful?
+          @user.update_attribute :identity_url, identity_url
+          flash[:notice] = t("users.flash.update")
+          redirect_to edit_user_path(@user)
+        else
+          flash.now[:error] = result.message
+          render "edit"
+        end
+      end
     else
-      render "edit"
+      if @user.update_attributes(params[:user])
+        flash[:notice] = t("users.flash.update")
+        redirect_to edit_user_path(@user)
+      else
+        render "edit"
+      end
     end
   end
 

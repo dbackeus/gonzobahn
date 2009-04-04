@@ -6,5 +6,10 @@
   - unless @user.open_id?
     = f.password_field :password
     = f.password_field :password_confirmation
-  
+    
+  %p
+    = label_tag "openid_identifier", @user.open_id? ? t(".change_open_id") : t(".add_open_id")
+    %br
+    = text_field_tag "openid_identifier"
+    
   = f.submit t("save")
