@@ -12,10 +12,11 @@
 %p
   %strong= t(".views")
   = @recording.views
-  
-%p
-  %strong= t(".tags")
-  = linked_tag_list(@recording.tags)
+
+-if @recording.tags.present?
+  %p
+    %strong= t(".tags")
+    = linked_tag_list(@recording.tags)
 
 %p
   = RedCloth.new(@recording.description).to_html

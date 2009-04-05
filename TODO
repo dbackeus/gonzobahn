@@ -15,6 +15,9 @@ Just nu
 - Kudossystem
 - Better recorder
 - Proper video / sound player
+  * Total time displayed 00:00 on a new movie once?
+  * Save soundsettings across page views
+  * Dont replay video after comment saved (autoplay=false parameter)
 - Omskalning av tumnaglar
 - Användarhemsida (dashboard style?)
 - OpenID på redan befintliga användare
