@@ -12,8 +12,9 @@ class RecordingsController < ApplicationController
     last_word = @words.pop.strip
     pattern = Regexp.new("^#{last_word}", "i")
     
-    @tags = all_tags.select { |t| t.name.match pattern }
-
+    tags = all_tags.select { |t| t.name.match pattern }
+    @tags = tags.reject { |tag| @words.include?(tag.to_s) }
+    
     render :layout => false
   end
   
