@@ -39,6 +39,7 @@ sv:
   recordings:
     index:
       title: Inspelningar
+      tag_result: "Hittade {{hits}} inspelningar taggade med \"{{tag}}\""
     form:
       tags: Taggar (separera med mellanslag)
       private: Gör inspelningen privat
@@ -46,6 +47,7 @@ sv:
       created: Skapad
       views: Visningar
       embed: Bädda in
+      tags: Taggar
     flash:
       create: Inspelningen skapades.
       update: Inspelningen uppdaterades.

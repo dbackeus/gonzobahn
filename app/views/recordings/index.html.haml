@@ -4,4 +4,7 @@
 -if logged_in?
   %p= link_to title_for(Recording.new, "create"), new_recording_path
 
+-if params[:tag].present?
+  %p= t(".tag_result", :tag => params[:tag], :hits => @recordings.length)
+
 = render @recordings

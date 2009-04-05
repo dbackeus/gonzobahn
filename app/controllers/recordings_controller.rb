@@ -29,7 +29,7 @@ class RecordingsController < ApplicationController
   
   # GET /recordings
   def index
-    @recordings = Recording.published.by_created_at(:desc)
+    @recordings = Recording.published.tagged_with(params[:tag], :on => :tags).by_created_at(:desc)
   end
   
   # GET /recordings/1

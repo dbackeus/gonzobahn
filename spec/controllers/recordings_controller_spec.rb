@@ -9,13 +9,27 @@ describe RecordingsController do
   
   describe "handling GET /recordings" do
     before(:each) do
-      3.downto(1) { |i| Factory(:recording, :created_at => i.months.ago) }
+      3.downto(1) { |i| Factory(:recording, :created_at => i.months.ago, :tag_list => i.odd? ? "test tags" : "") }
       Factory(:recording, :private => true)
-      get :index
     end
     
-    it { should respond_with(:success) }
-    it { should assign_to(:recordings).with(Recording.published.by_created_at(:desc)) }
+    describe "with tag parameter" do
+      before(:each) do
+        get :index, :tag => "tags"
+      end
+
+      it { should assign_to(:recordings).with(Recording.published.tagged_with("tags", :on => :tags).by_created_at(:desc)) }
+    end
+    
+    describe "without tag parameter" do
+      before(:each) do
+        get :index
+      end
+
+      it { should respond_with(:success) }
+      it { should assign_to(:recordings).with(Recording.published.tagged_with(nil, :on => :tags).by_created_at(:desc)) }
+    end
+    
   end
   
   describe "handling GET /recordings.atom" do

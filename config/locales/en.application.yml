@@ -46,6 +46,7 @@ en:
       created: Created
       views: Views
       embed: Embed
+      tags: Tags
     flash:
       create: Recording was successfully created.
       update: Recording was successfully updated.
