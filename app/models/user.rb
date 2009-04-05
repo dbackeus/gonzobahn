@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
   def avatar_url
-    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}.jpg?d=#{SITE_HOST}/images/missing_avatar.gif"
+    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}.jpg?d=http://#{SITE_HOST}/images/missing_avatar.gif"
   end
 
   # Returns true if the user has just been activated.

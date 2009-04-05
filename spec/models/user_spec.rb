@@ -19,7 +19,7 @@ describe User do
   
   it "should have a gravatar avatar" do
     md5_email = Digest::MD5.hexdigest(@quentin.email)
-    @quentin.avatar_url.should == "http://www.gravatar.com/avatar/#{md5_email}.jpg?d=#{SITE_HOST}/images/missing_avatar.gif"
+    @quentin.avatar_url.should == "http://www.gravatar.com/avatar/#{md5_email}.jpg?d=http://#{SITE_HOST}/images/missing_avatar.gif"
   end
   
   describe 'being created' do
