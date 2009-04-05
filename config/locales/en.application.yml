@@ -40,7 +40,7 @@ en:
     index:
       title: Recordings
     form:
-      tags: Tags (comma separated)
+      tags: Tags (separate with spaces)
       private: Make recording private
     show:
       created: Created

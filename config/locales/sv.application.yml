@@ -40,7 +40,7 @@ sv:
     index:
       title: Inspelningar
     form:
-      tags: Taggar (separerade med komma)
+      tags: Taggar (separera med mellanslag)
       private: Gör inspelningen privat
     show:
       created: Skapad
