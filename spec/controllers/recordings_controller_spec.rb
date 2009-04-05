@@ -59,12 +59,12 @@ describe RecordingsController do
     
     it "should redirect to swf with internal=false" do
       get :show, :format => "swf", :id => @recording.id
-      should redirect_to("http://#{SITE_HOST}/flash/recording_video_player.swf?host=#{SITE_HOST}&recordingId=#{@recording.id}&internal=false")
+      should redirect_to("http://#{SITE_HOST}/flash/recording_video_player.swf?host=#{SITE_HOST}&length=#{@recording.length}&recordingId=#{@recording.id}&internal=false")
     end
     
     it "should redirect to swf with internal=true" do
       get :show, :format => "swf", :id => @recording.id, :internal => "true"
-      should redirect_to("http://#{SITE_HOST}/flash/recording_video_player.swf?host=#{SITE_HOST}&recordingId=#{@recording.id}&internal=true")
+      should redirect_to("http://#{SITE_HOST}/flash/recording_video_player.swf?host=#{SITE_HOST}&length=#{@recording.length}&recordingId=#{@recording.id}&internal=true")
     end
   end
   

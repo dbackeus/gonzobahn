@@ -103,6 +103,6 @@ class RecordingsController < ApplicationController
   
   def recording_swf_url
     internal = params[:internal] == "true"
-    "http://#{SITE_HOST}/flash/recording_video_player.swf?host=#{SITE_HOST}&recordingId=#{@recording.id}&internal=#{internal}"
+    "http://#{SITE_HOST}/flash/recording_video_player.swf?host=#{SITE_HOST}&length=#{@recording.length}&recordingId=#{@recording.id}&internal=#{internal}"
   end
 end

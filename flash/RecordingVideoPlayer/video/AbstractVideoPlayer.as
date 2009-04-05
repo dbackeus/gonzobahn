@@ -136,9 +136,13 @@ class video.AbstractVideoPlayer extends ExtendedMovieClip
 		controls.elapsedTime.text = timeToText( player.playheadTime, controls.totalTime.text.length > 5 ) 
 	}
 	
-	function updateTotalTime()
+	function updateTotalTime(time)
 	{
-		controls.totalTime.text = timeToText( player.totalTime )
+	  time = time || player.totalTime
+		if(time > 0)
+		{
+		  controls.totalTime.text = timeToText( time )
+		}
 	}
 	
 	function loadVideo( url )
@@ -176,7 +180,7 @@ class video.AbstractVideoPlayer extends ExtendedMovieClip
 	
 	function onVideoLoaded( e:Object )
 	{
-		//myTrace( "onVideoLoaded: "+player.totalTime )
+		myTrace( "onVideoLoaded: "+player.totalTime )
 		// Reset seekBar on new movie
 		controls.enlargeButton.enabled = true
 		controls.resetControls()
