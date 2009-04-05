@@ -1,6 +1,8 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
 
+  acts_as_tagger
+
   attr_accessor :password
 
   validates_presence_of     :login, :email
@@ -43,7 +45,7 @@ class User < ActiveRecord::Base
   def recently_activated?
     @activated
   end
-
+  
   private
   def password_required?
     return false if identity_url.present?

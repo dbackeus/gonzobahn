@@ -1,3 +1,15 @@
+:javascript
+  function addTag(name)
+  {
+    var input = $("recording_tag_list")
+    var prefix = ""
+    if( input.value.length > 0 && input.value.charAt(input.value.length-1) != " ")
+    {
+      prefix = " "
+    }
+    input.value += prefix+name+" "
+  }
+
 -form_for @recording do |f|
   = f.error_messages
 
@@ -8,6 +20,9 @@
   
   = f.text_field :title
   = f.auto_completing_text_field :tag_list, :label => t(".tags")
+  -if current_user.owned_tags.present?
+    = tag_cloud current_user.owned_tags
+  
   = f.text_area :description
   = f.check_box :private, :label => t(".private")
   

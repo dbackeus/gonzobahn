@@ -36,6 +36,12 @@ class Recording < ActiveRecord::Base
     sprintf("%02d:%02d", time.min, time.sec)
   end
   
+  # This monkey sets the user as tagger
+  def set_tag_list_on(context,new_list, tagger=user)
+    instance_variable_set("@#{context.to_s.singularize}_list", TagList.from_owner(tagger, new_list))
+    add_custom_context(context)
+  end
+  
   private
   def move_file_to_public_dir
     File.makedirs directory
