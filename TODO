@@ -7,6 +7,7 @@ Just nu
 .production
 - Daemon for Red5
 - Cronjob to clear out unused red5 streams
+  * Use whenever? http://github.com/javan/whenever/tree/master
 - Staging environment
 - Proper mailing
 
@@ -19,6 +20,7 @@ Just nu
 - Omskalning av tumnaglar
 - Användarhemsida (dashboard style?)
 - Use players in atom feeds?
+- Forgot password
 
 .nice
 - Telefon med Asterix + skype + Adhearsion?

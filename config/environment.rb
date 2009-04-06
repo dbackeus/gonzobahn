@@ -14,6 +14,7 @@ Rails::Initializer.run do |config|
   config.gem "thoughtbot-pacecar", :lib => "pacecar", :source => "http://gems.github.com"
   config.gem "ruby-openid", :lib => 'openid'
   config.gem "mbleigh-acts-as-taggable-on", :lib => "acts-as-taggable-on", :source => "http://gems.github.com"
+  config.gem "ambethia-smtp-tls", :lib => "smtp-tls", :source => "http://gems.github.com/"
   
   unless RAILS_ENV == "production"
     config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
