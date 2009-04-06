@@ -81,3 +81,9 @@ en:
       open_id_user_not_found: "Sorry, no user by that identity URL exists ({{identity_url}})."
       activate_user: You need to activate your account by clicking the link in the registration email.
       destroy: You have been logged out.
+  user_mailer:
+    signup_notification:
+      welcome: "Welcome to The Dictaphone {{login}}. Your account has been created."
+      visit: "Visit this url to activate your account:"
+    activation:
+      activated: "{{login}}, your account has been activated. Enjoy the dictaphone!"

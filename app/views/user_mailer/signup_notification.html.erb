@@ -1,5 +1,5 @@
-Welcome to Gonzobahn <%= @user.login %>. Your account has been created.
+<%= t(".welcome", :login => @user.login) %>
 
-Visit this url to activate your account:
+<%= t(".visit") %>
 
   <%= @url %>

@@ -82,3 +82,9 @@ sv:
       open_id_user_not_found: "Ingen användare hittades med denna OpenID leverantör ({{identity_url}})."
       activate_user: Du måste aktivera ditt konto genom att klicka på länken i ditt registreringsmail.
       destroy: Du har nu loggat ut.
+  user_mailer:
+    signup_notification:
+      welcome: "Välkommen till diktafonen {{login}}."
+      visit: "Klicka på följande länk för att aktivera ditt konto:"
+    activation:
+      activated: "{{login}}, ditt konto har aktiverats. Ha det så kul med Diktafonen!"
