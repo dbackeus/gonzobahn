@@ -10,6 +10,7 @@ Just nu
   * Use whenever? http://github.com/javan/whenever/tree/master
 - Staging environment
 - Proper mailing
+  * Hide gmail password, use appconfig?
 
 .todo
 - Kudossystem

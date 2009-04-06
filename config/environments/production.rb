@@ -16,12 +16,23 @@ config.action_controller.perform_caching             = true
 
 config.action_mailer.raise_delivery_errors = true
 
-ActionMailer::Base.delivery_method = :sendmail
+config.action_mailer.delivery_method = :smtp
 
-ActionMailer::Base.sendmail_settings = {
-  :location       => '/usr/sbin/sendmail',
-  :arguments      => '-i -t'
+config.action_mailer.smtp_settings = {
+  :address        => "smtp.gmail.com",
+  :port           => 587,
+  :domain         => "diktafonen.com",
+  :authentication => :plain,
+  :user_name      => "noreply@diktafonen.com",
+  :password       => "testar" 
 }
+
+# ActionMailer::Base.delivery_method = :sendmail
+# 
+# ActionMailer::Base.sendmail_settings = {
+#   :location       => '/usr/sbin/sendmail',
+#   :arguments      => '-i -t'
+# }
 
 # Enable serving of images, stylesheets, and javascripts from an asset server
 # config.action_controller.asset_host                  = "http://assets.example.com"

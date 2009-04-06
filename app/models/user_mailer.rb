@@ -17,8 +17,8 @@ class UserMailer < ActionMailer::Base
   protected
   def setup_email(user)
     recipients user.email
-    from "noreply@gonzobahn.se"
-    subject "[Gonzobahn] "
+    from "noreply@diktafonen.com"
+    subject "[Diktafonen] "
     @body[:user] = user
   end
 end
