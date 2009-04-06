@@ -13,6 +13,13 @@ class UserMailer < ActionMailer::Base
     @body[:url]  = "http://#{SITE_HOST}/"
   end
   
+  def reset_password(user)
+    setup_email(user)
+    
+    @subject    += t("user_mailer.reset_password.subject")
+    @body[:url]  = "http://#{SITE_HOST}/reset_password/#{user.reset_code}"
+  end
+  
   protected
   def setup_email(user)
     recipients user.email

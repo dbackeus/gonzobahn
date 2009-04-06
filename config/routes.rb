@@ -1,7 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate'
-  map.signup '/signup', :controller => 'users', :action => 'new'
+  map.with_options :controller => 'users' do |users|
+    users.signup '/signup', :action => 'new'
+    users.activate '/activate/:activation_code', :action => 'activate'
+    users.forgot_password '/forgot_password', :action => 'forgot_password'
+    users.reset_password '/reset_password/:reset_code', :action => 'reset_password'
+  end
+  
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   

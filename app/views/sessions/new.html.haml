@@ -8,6 +8,7 @@
 
   %p
     = label_tag 'password', User.human_attribute_name('password')
+    = link_to t(".forgot_password"), forgot_password_path
     %br
     = password_field_tag 'password'
   

@@ -22,6 +22,39 @@ describe User do
     @quentin.avatar_url.should == "http://www.gravatar.com/avatar/#{md5_email}.jpg?d=http://#{SITE_HOST}/images/missing_avatar.gif"
   end
   
+  describe "reset code" do
+    before(:each) do
+      @user = Factory(:user)
+      @user.activate!
+    end
+    
+    it "should initially be nil" do
+      @user.reset_code.should be_nil
+    end
+    
+    it "should be generated" do
+      @user.create_reset_code!
+      User.find(@user.id).reset_code.should_not be_nil
+    end
+    
+    it "should send email on generation" do
+      UserMailer.expects(:deliver_reset_password).with(@user)
+      @user.create_reset_code!
+    end
+    
+    it "should be recently reset" do
+      @user.should_not be_recently_reset
+      @user.create_reset_code!
+      @user.should be_recently_reset
+    end
+    
+    it "should be deleted" do
+      @user.create_reset_code!
+      @user.delete_reset_code!
+      @user.reload.reset_code.should be_nil
+    end
+  end
+  
   describe 'being created' do
     before do
       @user = nil
@@ -33,6 +66,11 @@ describe User do
     
     it 'increments User#count' do
       @creating_user.should change(User, :count).by(1)
+    end
+    
+    it "sends sign up email" do
+      UserMailer.expects(:deliver_signup_notification)
+      @creating_user.call
     end
 
     it 'initializes #activation_code' do

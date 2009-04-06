@@ -18,8 +18,8 @@ module ControllerSpecHelper
     @current_user
   end
   
-  def translate(key)
-    controller.translate(key)
+  def translate(key, options = {})
+    controller.translate(key, options)
   end
   
   module ClassMethods

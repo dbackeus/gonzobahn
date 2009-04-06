@@ -15,6 +15,89 @@ describe UsersController do
     it { should respond_with(:success) }
   end
   
+  describe "GET /forgot_password" do
+    before(:each) do
+      get :forgot_password
+    end
+    
+    it { should respond_with(:success) }
+  end
+  
+  describe "POST /forgot_password" do
+    describe "with good email" do
+      before(:each) do
+        @user = Factory(:user)
+        @user.activate!
+
+        post :forgot_password, :user => { :email => @user.email }
+      end
+
+      it { should set_the_flash.to(translate("users.flash.forgot_password", :email => @user.email)) }
+      it { should redirect_to(forgot_password_path) }
+      
+      it "should generate a reset code" do
+        @user.reload.reset_code.should_not be_nil
+      end
+    end
+
+    describe "with bad email" do
+      before(:each) do
+        post :forgot_password, :user => { :email => "anonexistingemail" }
+      end
+      
+      it { should set_the_flash.to(translate("users.flash.forgot_password_fail", :email => "anonexistingemail")) }
+      it { should respond_with(:success) }
+    end
+  end
+  
+  describe "GET /reset_password/:reset_code" do
+    before(:each) do
+      @user = Factory(:user)
+      @user.activate!
+      @user.create_reset_code!
+      
+      get :reset_password, :reset_code => @user.reset_code
+    end
+    
+    it { should respond_with(:success) }
+    it { should assign_to(:user).with(@user) }
+  end
+  
+  describe "PUT /reset_password/:reset_code" do
+    before(:each) do
+      @user = Factory(:user)
+      @user.activate!
+      @user.create_reset_code!
+    end
+    
+    describe "with good password" do
+      before(:each) do
+        put :reset_password, :reset_code => @user.reset_code, :user => { :password => "newpass", :password_confirmation => "newpass" }
+      end
+      
+      it { should redirect_to(login_path) }
+      it { should set_the_flash.to(translate("users.flash.reset_password", :login => @user.login)) }
+    end
+    
+    describe "with messed up password confirmation" do
+      before(:each) do
+        put :reset_password, :reset_code => @user.reset_code, :user => { :password => "newpass", :password_confirmation => "wtf" }
+      end
+      
+      it { should respond_with(:success) }
+      it { should_not set_the_flash }
+    end
+    
+    describe "without password" do
+      before(:each) do
+        put :reset_password, :reset_code => @user.reset_code, :user => {}
+      end
+      
+      it { should respond_with(:success) }
+      it { should set_the_flash.to(translate("users.flash.reset_password_missing_password")) }
+    end
+  end
+  
   logged_in do
     
     describe "GET edit" do

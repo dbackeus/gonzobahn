@@ -66,15 +66,27 @@ sv:
     edit:
       add_open_id: Använd OpenID
       change_open_id: Byt OpenID leverantör
+    forgot_password:
+      title: Glömt lösenord
+      explanation: Ange e-postadressen du använde när du registrerade dig på Diktafonen. Ett mail kommer sedan skickas ut med en länk du kan använda för att sätta ett nytt lösenord på din användare.
+    reset_password:
+      title: Sätt nytt lösenord
+      explanation: "Ange ett nytt lösenord för {{login}}."
+      select_new_password: Nytt lösenord
     flash:
       create: Tack för din registrering! Du kan nu aktivera ditt konto genom att klicka på länken i ditt aktiveringsmail.
       update: Din användare uppdaterades.
       activate: Registreringen är nu färdigställd! Du har loggats in och kan börja skapa dina inspelningar direkt.
       open_id: Din OpenID leverantör är nu knuten till ditt konto.
+      forgot_password: "Länk för återställning av lösenord skickad till {{email}}."
+      forgot_password_fail: "Det finns ingen användare med email: {{email}}."
+      reset_password: "Nytt lösenord satt för {{login}}. Du kan pröva direkt att logga in med ditt nya lösenord."
+      reset_password_missing_password: Lösenordet kan inte vara blankt!
   sessions:
     new:
       or_use: "Eller använd:"
       remember_me: Kom ihåg mig på den här datorn
+      forgot_password: glömt lösenord?
     flash:
       create: Du är nu inloggad.
       create_fail: Inloggningen misslyckades.
@@ -90,3 +102,7 @@ sv:
     activation:
       subject: Ditt konto är aktiverat!
       activated: "{{login}}, ditt konto har aktiverats. Ha det så kul med Diktafonen!"
+    reset_password:
+      subject: Återställning av lösenord
+      link_explanation: Använd följande länk för att ställa in ett nytt lösenord till din användare.
+      passive_explanation: (om du låter bli att följa länken så kommer ditt lösenord förbli oförändrat)

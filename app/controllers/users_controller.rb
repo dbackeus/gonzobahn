@@ -83,25 +83,55 @@ class UsersController < ApplicationController
     redirect_to user_recordings_path(current_user)
   end
 
-  def suspend
-    @user.suspend! 
-    redirect_to users_path
+  # Forgot and reset password functionality cargo culted from http://railsforum.com/viewtopic.php?id=11962
+  
+  # GET /forgot_password
+  def forgot_password
+    if request.post?
+      user = User.find_by_email(params[:user][:email])
+      if user
+        user.create_reset_code!
+        flash[:notice] = t("users.flash.forgot_password", :email => user.email)
+        redirect_to forgot_password_path
+      else
+        flash.now[:error] = t("users.flash.forgot_password_fail", :email => params[:user][:email])
+      end
+    end
+  end
+  
+  # GET /forgot_password/ef97b7453727318bc3bfeeca1252471e48f98fd2
+  def reset_password
+    @user = User.find_by_reset_code(params[:reset_code])
+    if request.put?
+      if params[:user][:password].blank?
+        flash.now[:error] = t("users.flash.reset_password_missing_password")
+      elsif @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
+        @user.delete_reset_code!
+        flash[:notice] = t("users.flash.reset_password", :login => @user.login)
+        redirect_to login_path
+      end
+    end
   end
 
-  def unsuspend
-    @user.unsuspend! 
-    redirect_to users_path
-  end
-
-  def destroy
-    @user.delete!
-    redirect_to users_path
-  end
-
-  def purge
-    @user.destroy
-    redirect_to users_path
-  end
+  # def suspend
+  #   @user.suspend! 
+  #   redirect_to users_path
+  # end
+  # 
+  # def unsuspend
+  #   @user.unsuspend! 
+  #   redirect_to users_path
+  # end
+  # 
+  # def destroy
+  #   @user.delete!
+  #   redirect_to users_path
+  # end
+  # 
+  # def purge
+  #   @user.destroy
+  #   redirect_to users_path
+  # end
 
   protected
   def find_user

@@ -40,7 +40,21 @@ class User < ActiveRecord::Base
   def avatar_url
     "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}.jpg?d=http://#{SITE_HOST}/images/missing_avatar.gif"
   end
-
+  
+  def create_reset_code!
+    @reset = true
+    update_attribute :reset_code, Digest::SHA1.hexdigest(Time.now.to_s.split(//).sort_by {rand}.join)
+  end
+  
+  def delete_reset_code!
+    update_attribute :reset_code, nil
+  end
+  
+  # Returns true if the user has created a reset code.
+  def recently_reset?
+    @reset
+  end
+  
   # Returns true if the user has just been activated.
   def recently_activated?
     @activated

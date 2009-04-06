@@ -65,15 +65,27 @@ en:
     edit:
       add_open_id: Assign an OpenID provider
       change_open_id: Change OpenID provider
+    forgot_password:
+      title: Forgot password
+      explanation: Submit the email address you used when you registered on the dictaphone. An email will be sent with instructions on how to assign a new password.
+    reset_password:
+      title: Set new password
+      explanation: "Assign a new password for {{login}}."
+      select_new_password: New password
     flash:
       create: Thanks for signing up! Please activate your account by clicking on the link in your activation mail.
       update: The user was successfully updated.
       activate: Signup complete! You are now logged in and ready to go...
       open_id: Your OpenID provider has been assigned to your account.
+      forgot_password: "A link to reset your password has been sent to {{email}}."
+      forgot_password_fail: "No user found with email: {{email}}."
+      reset_password: "New password assigned to {{login}}. You can try logging in with your new password right away."
+      reset_password_missing_password: Password can't be blank!
   sessions:
     new:
       or_use: "Or use:"
       remember_me: Remember me on this computer
+      forgot_password: forgot password?
     flash:
       create: Logged in successfully.
       create_fail: Log in failed.
@@ -89,3 +101,7 @@ en:
     activation:
       subject: Your account has been activated!
       activated: "{{login}}, your account has been activated. Enjoy the dictaphone!"
+    reset_password:
+      subject: Reset your password
+      link_explanation: Use the following link to reset your password to a new one.
+      passive_explanation: (if you dont follow the link your mail will remain unchanged)
