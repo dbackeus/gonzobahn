@@ -1,5 +1,5 @@
 en:
-  site_name: Dictaphone 2.0
+  site_name: The Dictaphone
 
   save: Save
   edit: Edit
@@ -83,7 +83,9 @@ en:
       destroy: You have been logged out.
   user_mailer:
     signup_notification:
+      subject: Please activate your new account
       welcome: "Welcome to The Dictaphone {{login}}. Your account has been created."
       visit: "Visit this url to activate your account:"
     activation:
+      subject: Your account has been activated!
       activated: "{{login}}, your account has been activated. Enjoy the dictaphone!"

@@ -1,5 +1,5 @@
 sv:
-  site_name: Diktafon 2.0
+  site_name: Diktafonen
   
   save: Spara
   edit: Redigera
@@ -84,7 +84,9 @@ sv:
       destroy: Du har nu loggat ut.
   user_mailer:
     signup_notification:
+      subject: Aktivera ditt konto
       welcome: "Välkommen till diktafonen {{login}}."
       visit: "Klicka på följande länk för att aktivera ditt konto:"
     activation:
+      subject: Ditt konto är aktiverat!
       activated: "{{login}}, ditt konto har aktiverats. Ha det så kul med Diktafonen!"
