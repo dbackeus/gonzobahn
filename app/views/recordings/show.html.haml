@@ -7,6 +7,10 @@
   = text_field_tag "embed_code", h(swf_object(recording_url(@recording, :format => "swf"), 320, 290)), :onclick => "$('embed_code').select()", :readonly => true
 
 %p
+  %strong= t("by").capitalize
+  = link_to @recording.user, user_recordings_path(@recording.user)
+
+%p
   %strong= t(".created")
   = time_pretty(@recording.created_at) + " (" + time_ago(@recording.created_at) + ")"
 %p
