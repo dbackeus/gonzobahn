@@ -41,4 +41,11 @@ describe User::RecordingsController do
       it { should assign_to(:recordings).with(@user.recordings.published.by_created_at(:desc)) }
     end
   end
+  
+  describe "routes" do
+    it "should accept usernames with dots" do
+      route_for(:controller => "user/recordings", :action => "index", :user => "david.backeus").should == "/david.backeus/recordings"
+      params_from(:get, "/david.backeus/recordings").should == {:controller => "user/recordings", :action => "index", :user => "david.backeus"}
+    end
+  end
 end

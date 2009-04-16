@@ -271,11 +271,6 @@ describe UsersController do
       controller.should set_the_flash.to(translate("users.flash.activate"))
       response.should redirect_to(user_recordings_path(user))
     end
-
-    it 'does not activate user with blank key' do
-      get :activate, :activation_code => ''
-      flash[:notice].should be_nil
-    end
   end
   
   logged_out do
@@ -298,4 +293,10 @@ describe UsersController do
     
   end
   
+  describe "routes" do
+    it "should accept usernames with dots" do
+      route_for(:controller => "users", :action => "edit", :id => "david.backeus").should == "/users/david.backeus/edit"
+      params_from(:get, "/users/david.backeus/edit").should == {:controller => "users", :action => "edit", :id => "david.backeus"}
+    end
+  end
 end
