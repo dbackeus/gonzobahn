@@ -1,7 +1,3 @@
-Just nu
-
-- Ibland beter sig flash player som internal fast den är internal false?
-
 === Diktafonen
 
 .production
@@ -11,6 +7,7 @@ Just nu
 - Staging environment
 - Proper mailing
   * Hide gmail password, use appconfig?
+- Nginx over Apache
 
 .todo
 - Kudossystem
@@ -32,7 +29,7 @@ Just nu
 .refactor
 - Använd bara ""
 - state_machine på User
+- Remarkable för tester
 
 .test
 - recording/1/file
-- All the open id stuff
