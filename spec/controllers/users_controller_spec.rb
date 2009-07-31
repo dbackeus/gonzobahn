@@ -112,9 +112,7 @@ describe UsersController do
       
       it "should authenticate through openid" do
         @controller.expects(:authenticate_with_open_id)
-        lambda {
-          put :update, :id => current_user.id, :openid_identifier => "user.openidprovider.com"
-        }.should raise_error(ActionView::MissingTemplate) # error check added to avoid test crash
+        put :update, :id => current_user.id, :openid_identifier => "user.openidprovider.com"
       end
       
       describe "with successful authentication" do
