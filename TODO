@@ -33,3 +33,4 @@
 
 .test
 - recording/1/file
+- använd fakefs (http://ozmm.org/posts/fakefs.html)
