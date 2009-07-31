@@ -1,7 +1,18 @@
 require File.dirname(__FILE__) + '/helper'
 
-class NotifierTest < ActiveSupport::TestCase
+class NotifierTest < Test::Unit::TestCase
   context "Sending a notice" do
+    should "not fail without rails environment" do
+      assert_nothing_raised do
+        HoptoadNotifier.environment_info
+      end
+    end
+
+    should "have information about the notifier in the headers" do
+      assert_equal "Hoptoad Notifier", HoptoadNotifier::HEADERS['X-Hoptoad-Client-Name']
+      assert_equal HoptoadNotifier::VERSION, HoptoadNotifier::HEADERS['X-Hoptoad-Client-Version']
+    end
+
     context "with an exception" do
       setup do
         @sender    = HoptoadNotifier::Sender.new
@@ -16,6 +27,7 @@ class NotifierTest < ActiveSupport::TestCase
         HoptoadNotifier.instance_variable_set("@backtrace_filters", [])
         HoptoadNotifier::Sender.expects(:new).returns(@sender)
         @sender.stubs(:public_environment?).returns(true)
+        HoptoadNotifier.stubs(:environment_info)
       end
 
       context "when using an HTTP Proxy" do
@@ -46,7 +58,7 @@ class NotifierTest < ActiveSupport::TestCase
             url = "http://hoptoadapp.com:80/notices/"
             uri = URI.parse(url)
             URI.expects(:parse).with(url).returns(uri)
-            @http.expects(:post).with(uri.path, anything, anything).returns(@response)
+            @http.expects(:post).with(uri.path, anything, HoptoadNotifier::HEADERS).returns(@response)
           end
         end
       end
@@ -71,11 +83,11 @@ class NotifierTest < ActiveSupport::TestCase
             url = "http://hoptoadapp.com:80/notices/"
             uri = URI.parse(url)
             URI.expects(:parse).with(url).returns(uri)
-            @http.expects(:post).with(uri.path, anything, anything).returns(@response)
+            @http.expects(:post).with(uri.path, anything, HoptoadNotifier::HEADERS).returns(@response)
           end
 
           before_should "post to the right path" do
-            @http.expects(:post).with("/notices/", anything, anything).returns(@response)
+            @http.expects(:post).with("/notices/", anything, HoptoadNotifier::HEADERS).returns(@response)
           end
 
           before_should "call send_to_hoptoad" do

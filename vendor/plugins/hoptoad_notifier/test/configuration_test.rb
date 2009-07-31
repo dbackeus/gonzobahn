@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
 
-class ConfigurationTest < ActiveSupport::TestCase
+class ConfigurationTest < Test::Unit::TestCase
   context "HoptoadNotifier configuration" do
     setup do
       @controller = HoptoadController.new
@@ -10,7 +10,7 @@ class ConfigurationTest < ActiveSupport::TestCase
           rescue_action_in_public e
         end
       end
-      assert @controller.methods.include?("notify_hoptoad")
+      assert @controller.respond_to?(:notify_hoptoad)
     end
 
     should "be done with a block" do
@@ -52,12 +52,13 @@ class ConfigurationTest < ActiveSupport::TestCase
     end
 
     [File.open(__FILE__), Proc.new { puts "boo!" }, Module.new].each do |object|
-      should "remove #{object.class} when cleaning environment" do
+      should "convert #{object.class} to a string when cleaning environment" do
         HoptoadNotifier.configure {}
         notice = @controller.send(:normalize_notice, {})
         notice[:environment][:strange_object] = object
 
-        assert_nil @controller.send(:clean_non_serializable_data, notice)[:environment][:strange_object]
+        filtered_notice = @controller.send(:clean_non_serializable_data, notice)
+        assert_equal object.to_s, filtered_notice[:environment][:strange_object]
       end
     end
 
@@ -116,6 +117,8 @@ class ConfigurationTest < ActiveSupport::TestCase
         end
       end
 
+      assert HoptoadNotifier.params_filters.include?( "password" )
+      assert HoptoadNotifier.params_filters.include?( "password_confirmation" )
       assert HoptoadNotifier.params_filters.include?( "abc" )
       assert HoptoadNotifier.params_filters.include?( "def" )
 
