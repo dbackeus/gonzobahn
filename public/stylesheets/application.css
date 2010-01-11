@@ -59,12 +59,7 @@ div#menu li.first {
   border-left: 1px solid #EEE;
 }
 
-/* === All Content === */
-
-/*#content {
-  border-bottom: 4px solid #E0E0E0;
-  margin-bottom: 15px;
-}*/
+/* === Wrapper === */
 
 #content h1 {
   font-family: "Gill Sans", "Trebuchet MS",Helvetica, Arial, sans-serif;
@@ -86,6 +81,8 @@ div#site {
 	background: white;
 	padding: 20px;
 }
+
+/* === Content === */
 
 div.recording {
 	float:left;
